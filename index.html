@@ -5,749 +5,651 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>David Shimizu — Mechanical Engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
+ 
 :root {
-  --bg: #0a0a0c;
-  --bg-elevated: #111115;
-  --bg-card: #16161b;
-  --border: #222228;
-  --border-accent: #2a2a32;
-  --text-primary: #e8e6e3;
-  --text-secondary: #8a8a96;
-  --text-muted: #55555f;
-  --accent: #c4f042;
-  --accent-dim: #5a6e20;
-  --accent-glow: rgba(196, 240, 66, 0.08);
-  --blue: #5b9cf5;
-  --serif: 'Instrument Serif', Georgia, serif;
-  --mono: 'DM Mono', 'Courier New', monospace;
-  --sans: 'Manrope', system-ui, sans-serif;
+  --bg: #ffffff;
+  --bg-alt: #f5f5f7;
+  --bg-card: #ffffff;
+  --text: #1d1d1f;
+  --text-secondary: #6e6e73;
+  --text-dim: #86868b;
+  --border: rgba(0,0,0,0.08);
+  --blue: #0071e3;
+  --blue-hover: #0077ED;
+  --shadow-card: 0 2px 12px rgba(0,0,0,0.04), 0 0 0 0.5px rgba(0,0,0,0.03);
+  --shadow-card-hover: 0 6px 24px rgba(0,0,0,0.07), 0 0 0 0.5px rgba(0,0,0,0.04);
+  --font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --mono: 'JetBrains Mono', 'SF Mono', monospace;
 }
-
+ 
 html { scroll-behavior: smooth; }
-
+ 
 body {
   background: var(--bg);
-  color: var(--text-primary);
-  font-family: var(--sans);
-  font-size: 16px;
-  line-height: 1.65;
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
-
-a { color: inherit; text-decoration: none; }
-
-/* ===== NOISE OVERLAY ===== */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 9999;
-}
-
-/* ===== NAV ===== */
+ 
+a { color: var(--blue); text-decoration: none; transition: color 0.2s; }
+a:hover { color: var(--blue-hover); }
+ 
+::selection { background: rgba(0, 113, 227, 0.15); }
+ 
+/* NAV */
 nav {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   z-index: 100;
-  padding: 1.2rem 2.5rem;
+  height: 52px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  backdrop-filter: blur(20px);
-  background: rgba(10,10,12,0.7);
-  border-bottom: 1px solid var(--border);
+  justify-content: center;
+  gap: 2.5rem;
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  background: rgba(255, 255, 255, 0.72);
+  border-bottom: 0.5px solid var(--border);
 }
-
-nav .logo {
-  font-family: var(--mono);
-  font-size: 0.82rem;
-  letter-spacing: 0.08em;
-  color: var(--text-secondary);
-}
-
-nav .logo span { color: var(--accent); }
-
-nav .links {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-}
-
-nav .links a {
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  transition: color 0.3s;
-  position: relative;
-}
-
-nav .links a:hover { color: var(--accent); }
-
-nav .links a::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: var(--accent);
-  transition: width 0.3s;
-}
-
-nav .links a:hover::after { width: 100%; }
-
-/* ===== HERO ===== */
+ 
+nav a { font-size: 0.78rem; color: var(--text-secondary); transition: color 0.25s; }
+nav a:hover { color: var(--text); }
+nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
+ 
+/* HERO */
 .hero {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
-  padding: 8rem 3rem 4rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative;
+  text-align: center;
+  padding: 6rem 2rem;
 }
-
-.hero-label {
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 1.5rem;
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards 0.2s;
-}
-
+ 
 .hero h1 {
-  font-family: var(--serif);
-  font-size: clamp(3rem, 7.5vw, 6.5rem);
-  font-weight: 400;
-  line-height: 1.05;
-  margin-bottom: 1.8rem;
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards 0.4s;
-}
-
-.hero h1 em {
-  font-style: italic;
-  color: var(--accent);
-}
-
-.hero-subtitle {
-  font-size: 1.15rem;
-  color: var(--text-secondary);
-  max-width: 560px;
-  line-height: 1.7;
-  margin-bottom: 2.5rem;
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards 0.6s;
-}
-
-.hero-meta {
-  display: flex;
-  gap: 2.5rem;
-  flex-wrap: wrap;
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards 0.8s;
-}
-
-.hero-meta .meta-item {
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  letter-spacing: 0.05em;
-}
-
-.hero-meta .meta-item span {
-  display: block;
-  color: var(--text-primary);
-  font-size: 0.85rem;
-  margin-top: 0.3rem;
-}
-
-.hero-grid-accent {
-  position: absolute;
-  right: 3rem;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 280px;
-  height: 280px;
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  opacity: 0;
-  animation: fadeIn 1.2s ease forwards 1s;
-}
-
-.hero-grid-accent::before {
-  content: '';
-  position: absolute;
-  inset: 12px;
-  border: 1px solid var(--border-accent);
-  border-radius: 2px;
-}
-
-.hero-grid-accent::after {
-  content: '01';
-  position: absolute;
-  top: -10px;
-  left: 16px;
-  font-family: var(--mono);
-  font-size: 0.65rem;
-  color: var(--accent-dim);
-  background: var(--bg);
-  padding: 0 6px;
-}
-
-/* ===== SECTIONS ===== */
-section {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 6rem 3rem;
-}
-
-.section-header {
-  display: flex;
-  align-items: baseline;
-  gap: 1.5rem;
-  margin-bottom: 3.5rem;
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 1.2rem;
-}
-
-.section-number {
-  font-family: var(--mono);
-  font-size: 0.7rem;
-  color: var(--accent-dim);
-  letter-spacing: 0.1em;
-}
-
-.section-title {
-  font-family: var(--serif);
-  font-size: 2.4rem;
-  font-weight: 400;
-}
-
-/* ===== PROJECT CARDS ===== */
-.projects-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.project-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 2.5rem;
-  position: relative;
-  overflow: hidden;
-  transition: border-color 0.4s, transform 0.3s;
-}
-
-.project-card:hover {
-  border-color: var(--accent-dim);
-  transform: translateY(-2px);
-}
-
-.project-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--accent), transparent);
-  opacity: 0;
-  transition: opacity 0.4s;
-}
-
-.project-card:hover::before { opacity: 1; }
-
-.project-card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 1.2rem;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-}
-
-.project-card h3 {
-  font-family: var(--sans);
-  font-size: 1.35rem;
-  font-weight: 600;
-  line-height: 1.3;
-}
-
-.project-date {
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  color: var(--text-muted);
-  letter-spacing: 0.08em;
-  white-space: nowrap;
-  padding-top: 0.25rem;
-}
-
-.project-context {
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  color: var(--accent-dim);
+  font-size: clamp(3rem, 7vw, 5rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.045em;
+  color: var(--text);
   margin-bottom: 1rem;
-  letter-spacing: 0.04em;
+  opacity: 0;
+  animation: fadeUp 0.9s ease forwards 0.15s;
 }
-
-.project-desc {
+ 
+.hero-sub {
+  font-size: 1.15rem;
+  font-weight: 400;
   color: var(--text-secondary);
-  font-size: 0.95rem;
-  line-height: 1.75;
-  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeUp 0.9s ease forwards 0.35s;
 }
-
-.project-highlights {
-  list-style: none;
+ 
+.hero-links {
   display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  margin-bottom: 1.5rem;
+  gap: 1.2rem;
+  margin-top: 2.5rem;
+  opacity: 0;
+  animation: fadeUp 0.9s ease forwards 0.55s;
 }
-
-.project-highlights li {
+ 
+.btn {
+  font-family: var(--font);
   font-size: 0.88rem;
-  color: var(--text-secondary);
-  padding-left: 1.4rem;
-  position: relative;
-  line-height: 1.6;
+  font-weight: 500;
+  padding: 0.72rem 1.8rem;
+  border-radius: 980px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
 }
-
-.project-highlights li::before {
-  content: '▸';
-  position: absolute;
-  left: 0;
-  color: var(--accent-dim);
-  font-size: 0.75rem;
-}
-
-.project-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.tag {
+ 
+.btn-primary { background: var(--blue); color: #fff; }
+.btn-primary:hover { background: var(--blue-hover); color: #fff; }
+.btn-secondary { background: transparent; color: var(--blue); border: 1px solid var(--blue); }
+.btn-secondary:hover { background: rgba(0,113,227,0.06); color: var(--blue); }
+.btn .arrow { font-size: 1.1rem; transition: transform 0.2s; }
+.btn:hover .arrow { transform: translateX(2px); }
+ 
+/* SECTIONS */
+.full-section { padding: 6.5rem 2rem; text-align: center; }
+.full-section.alt { background: var(--bg-alt); }
+ 
+.section-overline {
   font-family: var(--mono);
   font-size: 0.68rem;
-  letter-spacing: 0.06em;
-  padding: 0.3rem 0.7rem;
-  border: 1px solid var(--border);
-  border-radius: 3px;
-  color: var(--text-muted);
-  transition: border-color 0.3s, color 0.3s;
-}
-
-.project-card:hover .tag {
-  border-color: var(--border-accent);
-  color: var(--text-secondary);
-}
-
-/* ===== SKILLS SECTION ===== */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.5rem;
-}
-
-.skill-group {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 1.8rem;
-  transition: border-color 0.3s;
-}
-
-.skill-group:hover { border-color: var(--border-accent); }
-
-.skill-group h4 {
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 1rem;
+  color: var(--text-dim);
+  margin-bottom: 0.7rem;
 }
-
-.skill-group p {
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  line-height: 1.7;
+ 
+.section-headline {
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+  color: var(--text);
+  margin-bottom: 0.5rem;
 }
-
-/* ===== EXPERIENCE / EDUCATION ===== */
-.timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.timeline-item {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 2rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid var(--border);
-}
-
-.timeline-item:last-child { border-bottom: none; }
-
-.timeline-date {
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  letter-spacing: 0.05em;
-  padding-top: 0.3rem;
-}
-
-.timeline-content h3 {
-  font-size: 1.15rem;
-  font-weight: 600;
-  margin-bottom: 0.25rem;
-}
-
-.timeline-content .subtitle {
-  font-size: 0.88rem;
-  color: var(--text-secondary);
-  margin-bottom: 0.6rem;
-}
-
-.timeline-content p {
-  font-size: 0.88rem;
-  color: var(--text-muted);
-  line-height: 1.7;
-}
-
-/* ===== CONTACT ===== */
-.contact-section {
-  text-align: center;
-  padding: 6rem 3rem 8rem;
-}
-
-.contact-section h2 {
-  font-family: var(--serif);
-  font-size: clamp(2rem, 4vw, 3.5rem);
+ 
+.section-sub {
+  font-size: 1.05rem;
   font-weight: 400;
-  margin-bottom: 1.2rem;
-}
-
-.contact-section h2 em {
-  font-style: italic;
-  color: var(--accent);
-}
-
-.contact-section p {
   color: var(--text-secondary);
   max-width: 480px;
-  margin: 0 auto 2.5rem;
-  font-size: 1rem;
+  margin: 0 auto;
 }
-
-.contact-links {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
+ 
+/* PROJECTS */
+.project-section {
+  padding: 5rem 2rem 6rem;
+  max-width: 980px;
+  margin: 0 auto;
 }
-
-.contact-link {
+ 
+.project-header { text-align: center; margin-bottom: 2.5rem; }
+ 
+.project-header h2 {
+  font-size: clamp(1.7rem, 3.2vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  margin-bottom: 0.5rem;
+}
+ 
+.project-header .project-tagline {
+  font-size: 1.02rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin-bottom: 0.3rem;
+}
+ 
+.project-header .project-tools {
   font-family: var(--mono);
-  font-size: 0.78rem;
-  letter-spacing: 0.06em;
-  padding: 0.7rem 1.6rem;
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  letter-spacing: 0.03em;
+}
+ 
+/* PROJECT MEDIA */
+.project-image {
+  width: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  background: var(--bg-alt);
   border: 1px solid var(--border);
-  border-radius: 4px;
-  transition: all 0.3s;
+}
+ 
+.project-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+ 
+.project-image-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: var(--text-dim);
+  font-size: 0.82rem;
+}
+ 
+.project-image-placeholder svg {
+  width: 32px;
+  height: 32px;
+  stroke: var(--text-dim);
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+ 
+/* SIDE-BY-SIDE VIDEOS */
+.video-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-bottom: 2.5rem;
+}
+ 
+.video-item {
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+}
+ 
+.video-item video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+ 
+.video-item-placeholder {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: var(--text-dim);
+  font-size: 0.8rem;
+}
+ 
+.video-item-placeholder svg {
+  width: 28px;
+  height: 28px;
+  stroke: var(--text-dim);
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+ 
+.video-label {
+  text-align: center;
+  padding: 0.8rem 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 500;
   color: var(--text-secondary);
 }
-
-.contact-link:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  background: var(--accent-glow);
+ 
+/* PROJECT GRID */
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
 }
-
-/* ===== FOOTER ===== */
-footer {
-  text-align: center;
-  padding: 2rem;
-  border-top: 1px solid var(--border);
-  font-family: var(--mono);
-  font-size: 0.68rem;
-  color: var(--text-muted);
-  letter-spacing: 0.08em;
+ 
+.project-stat {
+  background: var(--bg-card);
+  border-radius: 18px;
+  padding: 1.8rem;
+  text-align: left;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
-/* ===== ANIMATIONS ===== */
+ 
+.project-stat:hover { transform: translateY(-3px); box-shadow: var(--shadow-card-hover); }
+ 
+.project-stat .stat-number {
+  font-size: 1.7rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.3rem;
+  color: var(--blue);
+}
+ 
+.project-stat h4 { font-size: 0.88rem; font-weight: 600; margin-bottom: 0.5rem; }
+.project-stat p { font-size: 0.82rem; font-weight: 400; color: var(--text-secondary); line-height: 1.6; }
+.project-stat.wide { grid-column: 1 / -1; }
+ 
+/* SKILLS */
+.skills-inner { max-width: 980px; margin: 0 auto; padding-top: 2.5rem; }
+ 
+.skills-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+}
+ 
+.skill-card {
+  background: var(--bg-card);
+  border-radius: 18px;
+  padding: 1.8rem;
+  text-align: left;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+ 
+.skill-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-card-hover); }
+ 
+.skill-card h4 {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 0.9rem;
+}
+ 
+.skill-card p { font-size: 0.84rem; color: var(--text-secondary); line-height: 1.7; }
+ 
+/* BACKGROUND */
+.bg-inner { max-width: 640px; margin: 0 auto; padding-top: 2.5rem; text-align: left; }
+ 
+.bg-entry { padding: 1.8rem 0; border-bottom: 1px solid var(--border); }
+.bg-entry:last-child { border-bottom: none; }
+.bg-entry-date { font-family: var(--mono); font-size: 0.68rem; color: var(--text-dim); margin-bottom: 0.4rem; }
+.bg-entry h3 { font-size: 1.2rem; font-weight: 600; margin-bottom: 0.1rem; }
+.bg-entry .bg-role { font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 0.5rem; }
+.bg-entry p { font-size: 0.85rem; color: var(--text-dim); line-height: 1.7; }
+ 
+/* CONTACT */
+.contact-row {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-top: 2.5rem;
+}
+ 
+.contact-pill {
+  font-family: var(--font);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-secondary) !important;
+  padding: 0.65rem 1.5rem;
+  border-radius: 980px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+  transition: all 0.25s;
+}
+ 
+.contact-pill:hover { color: var(--text) !important; border-color: rgba(0,0,0,0.15); box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+.contact-pill.primary { background: var(--blue); border-color: var(--blue); color: #fff !important; }
+.contact-pill.primary:hover { background: var(--blue-hover); border-color: var(--blue-hover); }
+ 
+/* FOOTER */
+footer { padding: 1.5rem 2rem; text-align: center; border-top: 1px solid var(--border); }
+footer p { font-size: 0.72rem; color: var(--text-dim); }
+ 
+/* ANIMATIONS */
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(22px); }
   to { opacity: 1; transform: translateY(0); }
 }
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
+ 
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ===== RESPONSIVE ===== */
+ 
+.reveal.visible { opacity: 1; transform: translateY(0); }
+ 
+.reveal-group .reveal:nth-child(1) { transition-delay: 0s; }
+.reveal-group .reveal:nth-child(2) { transition-delay: 0.07s; }
+.reveal-group .reveal:nth-child(3) { transition-delay: 0.14s; }
+.reveal-group .reveal:nth-child(4) { transition-delay: 0.21s; }
+ 
 @media (max-width: 768px) {
-  nav { padding: 1rem 1.5rem; }
-  nav .links { gap: 1rem; }
-  .hero { padding: 7rem 1.5rem 3rem; }
-  section { padding: 4rem 1.5rem; }
-  .hero-grid-accent { display: none; }
-  .timeline-item {
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
-  }
-  .contact-section { padding: 4rem 1.5rem 6rem; }
+  nav { gap: 1.5rem; padding: 0 1rem; }
+  .project-grid { grid-template-columns: 1fr; }
+  .skills-row { grid-template-columns: 1fr 1fr; }
+  .full-section { padding: 4.5rem 1.5rem; }
+  .project-section { padding: 3.5rem 1.5rem 4.5rem; }
+  .video-pair { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+}
+ 
+@media (max-width: 480px) {
+  .skills-row { grid-template-columns: 1fr; }
+  .hero-links { flex-direction: column; gap: 0.8rem; }
+  nav { gap: 1rem; }
+  nav a { font-size: 0.7rem; }
 }
 </style>
 </head>
 <body>
-
+ 
 <!-- NAV -->
 <nav>
-  <div class="logo"><span>//</span> david.shimizu</div>
-  <ul class="links">
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#background">Background</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+  <a href="#" class="nav-name">David Shimizu</a>
+  <a href="#projects">Projects</a>
+  <a href="#skills">Skills</a>
+  <a href="#background">Background</a>
+  <a href="#contact">Contact</a>
 </nav>
-
+ 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-label">Mechanical Engineering · UCSD '27</div>
-  <h1>David<br>Shimizu</h1>
-  <p class="hero-subtitle">
-    Mechanical engineer building at the intersection of hardware design, embedded firmware, and autonomous systems. I turn ideas into PCBs, enclosures, and working firmware.
-  </p>
-  <div class="hero-meta">
-    <div class="meta-item">
-      Location
-      <span>San Diego, CA</span>
-    </div>
-    <div class="meta-item">
-      Focus
-      <span>Embedded Systems · PCB Design · Robotics</span>
-    </div>
-    <div class="meta-item">
-      GPA
-      <span>3.63 / 4.00</span>
-    </div>
-  </div>
-  <div class="hero-grid-accent"></div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="section-header reveal">
-    <span class="section-number">01</span>
-    <h2 class="section-title">Projects</h2>
-  </div>
-
-  <div class="projects-grid">
-
-    <!-- Project 1 -->
-    <div class="project-card reveal">
-      <div class="project-card-header">
-        <h3>Dual-Radio Calculator &amp; Bluetooth HID Macropad</h3>
-        <span class="project-date">Summer 2025</span>
-      </div>
-      <div class="project-context">Personal Project · Fusion 360, Altium Designer, C++</div>
-      <p class="project-desc">
-        A 25-key dual-radio device combining a Wi-Fi-connected calculator with a Bluetooth HID macropad, built on the ESP32-S3. Features a UART HMI display, real-time weather data, and a fully custom enclosure.
-      </p>
-      <ul class="project-highlights">
-        <li>Engineered an RF-optimized 4-layer PCB with onboard LiPo charging, dedicated power plane, and keep-out zones to prevent antenna detuning</li>
-        <li>Developed asynchronous C++ firmware for concurrent Wi-Fi REST API calls and BLE HID profile management with non-blocking architecture</li>
-        <li>Achieved &lt;4ms firmware-to-HID latency via interrupt-driven matrix scanning, reducing CPU usage and idle current draw</li>
-        <li>Designed multi-part Fusion 360 enclosure with mounting for mechanical switches, display, and battery housing</li>
-      </ul>
-      <div class="project-tags">
-        <span class="tag">ESP32-S3</span>
-        <span class="tag">Altium</span>
-        <span class="tag">BLE</span>
-        <span class="tag">Wi-Fi</span>
-        <span class="tag">C++</span>
-        <span class="tag">Fusion 360</span>
-        <span class="tag">RF Design</span>
-      </div>
-    </div>
-
-    <!-- Project 2 -->
-    <div class="project-card reveal">
-      <div class="project-card-header">
-        <h3>Autonomous Vehicle — MAE 148</h3>
-        <span class="project-date">Winter 2026</span>
-      </div>
-      <div class="project-context">UCSD Coursework · SolidWorks, ROS2, Linux, TensorFlow, AI HAT+</div>
-      <p class="project-desc">
-        Co-developed a 1/8-scale autonomous vehicle in ROS2 on a Raspberry Pi 5, implementing behavior-cloned camera control, RTK GPS waypoint following, and HSV-filtered lane detection.
-      </p>
-      <ul class="project-highlights">
-        <li>Configured OAK-D camera, VESC motor controller, and joystick within a ROS2/DonkeyCar pipeline, resolving serial/USB/firmware conflicts for stable 20 Hz closed-loop control</li>
-        <li>Designed and tuned PID controllers for steering and throttle, cutting lap time from 145s to 53s</li>
-        <li>Offloaded neural inference to Hailo AI HAT+ NPU, achieving a 6.8× speedup (309→2,112 FPS) while dropping CPU utilization from 16% to under 3%</li>
-        <li>Built benchmarking suite comparing CPU vs NPU performance across inference speed, driving pipeline, and system resources</li>
-      </ul>
-      <div class="project-tags">
-        <span class="tag">ROS2</span>
-        <span class="tag">Raspberry Pi 5</span>
-        <span class="tag">TensorFlow</span>
-        <span class="tag">HailoRT</span>
-        <span class="tag">PID Control</span>
-        <span class="tag">Computer Vision</span>
-      </div>
-    </div>
-
-    <!-- Project 3 -->
-    <div class="project-card reveal">
-      <div class="project-card-header">
-        <h3>Custom Bluetooth 5.0 HID Dongle</h3>
-        <span class="project-date">Fall 2025</span>
-      </div>
-      <div class="project-context">Personal Project · Fusion 360, Altium Designer</div>
-      <p class="project-desc">
-        Designed and validated a Bluetooth 5.0 HID dongle from schematic through field testing, with a custom 4-layer PCB featuring impedance-matched RF traces and a magnetic snap-fit enclosure.
-      </p>
-      <ul class="project-highlights">
-        <li>Designed a 4-layer Altium PCB with controlled-impedance RF traces for Bluetooth 5.0 operation</li>
-        <li>Performed tolerance stack-up analysis for a precision magnetic enclosure designed in Fusion 360</li>
-        <li>Validated 280ft LOS range, –88 dBm RSSI, &lt;20ms HID latency, and +8 dBm transmit power through field testing</li>
-      </ul>
-      <div class="project-tags">
-        <span class="tag">Altium</span>
-        <span class="tag">Bluetooth 5.0</span>
-        <span class="tag">RF Traces</span>
-        <span class="tag">Fusion 360</span>
-        <span class="tag">HID</span>
-      </div>
-    </div>
-
+  <h1>David Shimizu</h1>
+  <p class="hero-sub">Mechanical Engineering · UC San Diego '27</p>
+  <div class="hero-links">
+    <a href="#projects" class="btn btn-primary">View projects <span class="arrow">›</span></a>
+    <a href="mailto:shimizudavid04@gmail.com" class="btn btn-secondary">Contact me <span class="arrow">›</span></a>
   </div>
 </section>
-
+ 
+<!-- PROJECTS INTRO -->
+<div class="full-section alt" id="projects">
+  <div class="section-overline reveal">Projects</div>
+  <h2 class="section-headline reveal">What I've been working on</h2>
+  <p class="section-sub reveal">A few recent projects involving custom PCBs, embedded firmware, and autonomous systems.</p>
+</div>
+ 
+<!-- PROJECT 1: MACROPAD -->
+<section class="project-section">
+  <div class="project-header reveal">
+    <h2>Dual-Radio Calculator &amp; BLE Macropad</h2>
+    <p class="project-tagline">A 25-key device that runs Wi-Fi and Bluetooth at the same time on an ESP32-S3.</p>
+    <p class="project-tools">Summer 2025 · Altium Designer · C++ · Fusion 360</p>
+  </div>
+ 
+  <!-- MAIN IMAGE: replace placeholder with <img src="images/macropad.jpg" alt="Dual-radio macropad"> -->
+  <div class="project-image reveal">
+    <div class="project-image-placeholder">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+      Add your main macropad photo here
+    </div>
+  </div>
+ 
+  <!-- SIDE-BY-SIDE VIDEOS -->
+  <!--
+    To add your videos, replace each placeholder div with:
+    <video autoplay muted loop playsinline>
+      <source src="images/calculator-demo.mp4" type="video/mp4">
+    </video>
+  -->
+  <div class="video-pair reveal">
+<div class="video-item">
+      <iframe 
+        src="https://youtube.com/shorts/I0QXNJweEUY?feature=share" 
+        allowfullscreen 
+        style="width:100%; aspect-ratio:9/16; border:none;">
+      </iframe>
+      <div class="video-label">Calculator &amp; Display</div>
+</div>
+<div class="video-item">
+      <iframe 
+        src="https://youtube.com/shorts/I0QXNJweEUY?feature=share" 
+        allowfullscreen 
+        style="width:100%; aspect-ratio:9/16; border:none;">
+      </iframe>
+      <div class="video-label">BLE Macropad</div>
+</div>
+</div>
+ 
+  <div class="project-grid reveal-group">
+    <div class="project-stat reveal">
+      <div class="stat-number">&lt;4ms</div>
+      <h4>HID Latency</h4>
+      <p>Used interrupt-driven matrix scanning to keep keystroke response fast without wasting CPU cycles.</p>
+    </div>
+    <div class="project-stat reveal">
+      <div class="stat-number">4-Layer</div>
+      <h4>RF-Optimized PCB</h4>
+      <p>Designed a 4-layer board with a dedicated power plane and keep-out zones around the antenna to avoid detuning.</p>
+    </div>
+    <div class="project-stat reveal">
+      <h4>Async Firmware</h4>
+      <p>Wrote non-blocking C++ so the device can fetch weather data over Wi-Fi and handle BLE keystrokes at the same time without either slowing down.</p>
+    </div>
+    <div class="project-stat reveal">
+      <h4>Custom Enclosure</h4>
+      <p>Designed a multi-part case in Fusion 360 with mounting for mechanical switches, a UART display, and a LiPo battery.</p>
+    </div>
+  </div>
+</section>
+ 
+<!-- PROJECT 2: AUTONOMOUS VEHICLE -->
+<div class="full-section alt">
+  <section class="project-section" style="padding-top:0;padding-bottom:0;max-width:980px;margin:0 auto;">
+    <div class="project-header reveal">
+      <h2>Autonomous Vehicle</h2>
+      <p class="project-tagline">A 1/8-scale car that drives itself using camera AI, GPS waypoints, and lane detection.</p>
+      <p class="project-tools">Winter 2026 · MAE 148 · ROS2 · TensorFlow · HailoRT</p>
+    </div>
+ 
+    <!-- REPLACE: swap placeholder with <img src="images/vehicle.jpg" alt="Autonomous vehicle"> -->
+    <div class="project-image reveal">
+      <div class="project-image-placeholder">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        Add a photo of your vehicle here
+      </div>
+    </div>
+ 
+    <div class="project-grid reveal-group">
+      <div class="project-stat reveal">
+        <div class="stat-number">6.8×</div>
+        <h4>Inference Speedup</h4>
+        <p>Moved neural network inference to the Hailo NPU, going from 309 FPS to 2,112 FPS and dropping CPU usage from 16% to under 3%.</p>
+      </div>
+      <div class="project-stat reveal">
+        <div class="stat-number">53s</div>
+        <h4>Lap Time</h4>
+        <p>Started at 145 seconds. Got it down to 53 by tuning PID controllers for steering and throttle.</p>
+      </div>
+      <div class="project-stat reveal">
+        <h4>Sensor Integration</h4>
+        <p>Set up an OAK-D camera, VESC motor controller, and joystick in a ROS2/DonkeyCar pipeline. Spent a lot of time debugging serial and USB conflicts to get stable 20 Hz control.</p>
+      </div>
+      <div class="project-stat reveal">
+        <h4>Benchmarking</h4>
+        <p>Built a test suite to compare CPU vs NPU performance across inference speed, driving behavior, and system resource usage.</p>
+      </div>
+    </div>
+  </section>
+</div>
+ 
+<!-- PROJECT 3: BLE DONGLE -->
+<section class="project-section">
+  <div class="project-header reveal">
+    <h2>Bluetooth 5.0 HID Dongle</h2>
+    <p class="project-tagline">A custom BLE dongle with impedance-matched RF traces and a magnetic snap-fit case.</p>
+    <p class="project-tools">Fall 2025 · Altium Designer · Fusion 360</p>
+  </div>
+ 
+  <!-- REPLACE: swap placeholder with <img src="images/dongle.jpg" alt="BLE dongle"> -->
+  <div class="project-image reveal">
+    <div class="project-image-placeholder">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+      Add a photo of your dongle here
+    </div>
+  </div>
+ 
+  <div class="project-grid reveal-group">
+    <div class="project-stat reveal">
+      <div class="stat-number">280ft</div>
+      <h4>Range</h4>
+      <p>Tested line-of-sight range at 280 feet with –88 dBm RSSI and +8 dBm transmit power.</p>
+    </div>
+    <div class="project-stat reveal">
+      <div class="stat-number">&lt;20ms</div>
+      <h4>Latency</h4>
+      <p>Fast enough for real-time keyboard and mouse input over Bluetooth.</p>
+    </div>
+    <div class="project-stat wide reveal">
+      <h4>Full Hardware Design</h4>
+      <p>Designed the 4-layer PCB in Altium with controlled-impedance RF traces, and made a magnetic enclosure in Fusion 360 with tolerance stack-up analysis for a precise fit.</p>
+    </div>
+  </div>
+</section>
+ 
 <!-- SKILLS -->
-<section id="skills">
-  <div class="section-header reveal">
-    <span class="section-number">02</span>
-    <h2 class="section-title">Technical Skills</h2>
+<div class="full-section alt" id="skills">
+  <div class="section-overline reveal">Skills</div>
+  <h2 class="section-headline reveal">Tools and technologies</h2>
+  <div class="skills-inner">
+    <div class="skills-row reveal-group">
+      <div class="skill-card reveal">
+        <h4>Hardware</h4>
+        <p>PCB Design & Assembly, 3D Printing, Laser Cutting, ESP32, Raspberry Pi</p>
+      </div>
+      <div class="skill-card reveal">
+        <h4>Software & CAD</h4>
+        <p>Altium Designer, Fusion 360, SolidWorks, PlatformIO, Git, Figma</p>
+      </div>
+      <div class="skill-card reveal">
+        <h4>Frameworks</h4>
+        <p>ROS2, TensorFlow, HailoRT, Docker, UART, I2C, BLE, Wi-Fi, REST API</p>
+      </div>
+      <div class="skill-card reveal">
+        <h4>Languages</h4>
+        <p>C++, Python, MATLAB, Bash, Linux, LaTeX</p>
+      </div>
+    </div>
   </div>
-
-  <div class="skills-grid">
-    <div class="skill-group reveal">
-      <h4>Hardware & Systems</h4>
-      <p>Rapid Prototyping (3D Printing, Laser Cutting), PCB Design & Assembly, ESP32, Raspberry Pi</p>
-    </div>
-    <div class="skill-group reveal">
-      <h4>Software & CAD</h4>
-      <p>Fusion 360, SolidWorks, Altium Designer, PlatformIO, Git, HMI Design (UI/UX), Figma</p>
-    </div>
-    <div class="skill-group reveal">
-      <h4>Frameworks & Protocols</h4>
-      <p>ROS2, TensorFlow, HailoRT, Docker, UART, I2C, BLE, Wi-Fi, REST API</p>
-    </div>
-    <div class="skill-group reveal">
-      <h4>Languages & OS</h4>
-      <p>C++, Python, MATLAB, Bash, Linux (Ubuntu), LaTeX</p>
-    </div>
-  </div>
-</section>
-
+</div>
+ 
 <!-- BACKGROUND -->
-<section id="background">
-  <div class="section-header reveal">
-    <span class="section-number">03</span>
-    <h2 class="section-title">Background</h2>
-  </div>
-
-  <div class="timeline">
-    <div class="timeline-item reveal">
-      <div class="timeline-date">Fall 2024 – Mar 2027</div>
-      <div class="timeline-content">
-        <h3>University of California San Diego</h3>
-        <div class="subtitle">B.S. Mechanical Engineering · GPA 3.63</div>
-        <p>Coursework in autonomous vehicles (MAE 148), embedded systems, and robotics. Active in hands-on engineering projects spanning PCB design, firmware development, and autonomous navigation.</p>
-      </div>
+<section class="full-section" id="background">
+  <div class="section-overline reveal">Background</div>
+  <h2 class="section-headline reveal">Education & experience</h2>
+  <div class="bg-inner">
+    <div class="bg-entry reveal">
+      <div class="bg-entry-date">2024 – 2027</div>
+      <h3>UC San Diego</h3>
+      <div class="bg-role">B.S. Mechanical Engineering · 3.63 GPA</div>
+      <p>Taking courses in autonomous vehicles (MAE 148), embedded systems, and robotics. Most of my time outside class goes into building hardware projects.</p>
     </div>
-    <div class="timeline-item reveal">
-      <div class="timeline-date">Spring 2023</div>
-      <div class="timeline-content">
-        <h3>NASA Community College Aerospace Scholar</h3>
-        <div class="subtitle">Aerospace Scholar · Remote</div>
-        <p>Collaborated in a 10-person team to design a Mars exploration mission under NASA mass constraints. Delivered a Preliminary Design Review to NASA experts, justifying subsystem choices and validating mission architecture.</p>
-      </div>
+    <div class="bg-entry reveal">
+      <div class="bg-entry-date">Spring 2023</div>
+      <h3>NASA NCAS</h3>
+      <div class="bg-role">Aerospace Scholar</div>
+      <p>Worked with a 10-person team to design a Mars exploration mission under NASA's mass constraints. Presented our design review to NASA engineers.</p>
     </div>
-    <div class="timeline-item reveal">
-      <div class="timeline-date">Fall 2022 – Spring 2024</div>
-      <div class="timeline-content">
-        <h3>El Camino College</h3>
-        <div class="subtitle">General Education & Engineering Prerequisites · Torrance, CA</div>
-        <p>Completed foundational engineering coursework before transferring to UC San Diego.</p>
-      </div>
+    <div class="bg-entry reveal">
+      <div class="bg-entry-date">2022 – 2024</div>
+      <h3>El Camino College</h3>
+      <div class="bg-role">Engineering Prerequisites · Torrance, CA</div>
+      <p>Completed my engineering prerequisites here before transferring to UCSD.</p>
     </div>
   </div>
 </section>
-
+ 
 <!-- CONTACT -->
-<section id="contact" class="contact-section">
-  <h2 class="reveal">Let's <em>build</em> something.</h2>
-  <p class="reveal">Currently seeking Summer 2026 internships in embedded systems, hardware design, and robotics.</p>
-  <div class="contact-links reveal">
-    <a href="mailto:shimizudavid04@gmail.com" class="contact-link">shimizudavid04@gmail.com</a>
-    <a href="tel:310-480-4685" class="contact-link">310-480-4685</a>
-    <a href="https://linkedin.com/in/davidshimizu" target="_blank" class="contact-link">LinkedIn</a>
-    <a href="https://github.com/davidshimizu1" target="_blank" class="contact-link">GitHub</a>
+<div class="full-section alt" id="contact">
+  <div class="section-overline reveal">Contact</div>
+  <h2 class="section-headline reveal">Get in touch</h2>
+  <p class="section-sub reveal">I'm looking for Summer 2026 internships in embedded systems, hardware design, or robotics. Feel free to reach out.</p>
+  <div class="contact-row reveal">
+    <a href="mailto:shimizudavid04@gmail.com" class="contact-pill primary">shimizudavid04@gmail.com</a>
+    <a href="tel:310-480-4685" class="contact-pill">310-480-4685</a>
+    <a href="https://linkedin.com/in/davidshimizu" target="_blank" class="contact-pill">LinkedIn</a>
+    <a href="https://github.com/davidshimizu1" target="_blank" class="contact-pill">GitHub</a>
   </div>
-</section>
-
+</div>
+ 
 <footer>
-  &copy; 2026 David Shimizu — Built with care.
+  <p>&copy; 2026 David Shimizu</p>
 </footer>
-
+ 
 <script>
-// Scroll reveal
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
+    if (entry.isIntersecting) entry.target.classList.add('visible');
   });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
+}, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
-
+ 
 </body>
 </html>
