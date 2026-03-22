@@ -9,6 +9,7 @@
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
  
+
 :root {
   --bg: #ffffff;
   --bg-alt: #f5f5f7;
@@ -25,8 +26,10 @@
   --mono: 'JetBrains Mono', 'SF Mono', monospace;
 }
  
+
 html { scroll-behavior: smooth; }
  
+
 body {
   background: var(--bg);
   color: var(--text);
@@ -37,11 +40,14 @@ body {
   overflow-x: hidden;
 }
  
+
 a { color: var(--blue); text-decoration: none; transition: color 0.2s; }
 a:hover { color: var(--blue-hover); }
  
+
 ::selection { background: rgba(0, 113, 227, 0.15); }
  
+
 /* NAV */
 nav {
   position: fixed;
@@ -58,10 +64,12 @@ nav {
   border-bottom: 0.5px solid var(--border);
 }
  
+
 nav a { font-size: 0.78rem; color: var(--text-secondary); transition: color 0.25s; }
 nav a:hover { color: var(--text); }
 nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
  
+
 /* HERO */
 .hero {
   min-height: 100vh;
@@ -73,6 +81,7 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   padding: 6rem 2rem;
 }
  
+
 .hero h1 {
   font-size: clamp(3rem, 7vw, 5rem);
   font-weight: 800;
@@ -84,6 +93,7 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   animation: fadeUp 0.9s ease forwards 0.15s;
 }
  
+
 .hero-sub {
   font-size: 1.15rem;
   font-weight: 400;
@@ -92,6 +102,7 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   animation: fadeUp 0.9s ease forwards 0.35s;
 }
  
+
 .hero-links {
   display: flex;
   gap: 1.2rem;
@@ -100,6 +111,7 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   animation: fadeUp 0.9s ease forwards 0.55s;
 }
  
+
 .btn {
   font-family: var(--font);
   font-size: 0.88rem;
@@ -114,6 +126,7 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   gap: 0.3rem;
 }
  
+
 .btn-primary { background: var(--blue); color: #fff; }
 .btn-primary:hover { background: var(--blue-hover); color: #fff; }
 .btn-secondary { background: transparent; color: var(--blue); border: 1px solid var(--blue); }
@@ -121,10 +134,12 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
 .btn .arrow { font-size: 1.1rem; transition: transform 0.2s; }
 .btn:hover .arrow { transform: translateX(2px); }
  
+
 /* SECTIONS */
 .full-section { padding: 6.5rem 2rem; text-align: center; }
 .full-section.alt { background: var(--bg-alt); }
  
+
 .section-overline {
   font-family: var(--mono);
   font-size: 0.68rem;
@@ -134,6 +149,7 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   margin-bottom: 0.7rem;
 }
  
+
 .section-headline {
   font-size: clamp(1.9rem, 4vw, 3rem);
   font-weight: 700;
@@ -143,6 +159,7 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   margin-bottom: 0.5rem;
 }
  
+
 .section-sub {
   font-size: 1.05rem;
   font-weight: 400;
@@ -151,6 +168,7 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   margin: 0 auto;
 }
  
+
 /* PROJECTS */
 .project-section {
   padding: 5rem 2rem 6rem;
@@ -158,8 +176,10 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   margin: 0 auto;
 }
  
+
 .project-header { text-align: center; margin-bottom: 2.5rem; }
  
+
 .project-header h2 {
   font-size: clamp(1.7rem, 3.2vw, 2.4rem);
   font-weight: 700;
@@ -167,6 +187,7 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   margin-bottom: 0.5rem;
 }
  
+
 .project-header .project-tagline {
   font-size: 1.02rem;
   font-weight: 400;
@@ -174,6 +195,7 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   margin-bottom: 0.3rem;
 }
  
+
 .project-header .project-tools {
   font-family: var(--mono);
   font-size: 0.7rem;
@@ -181,6 +203,7 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   letter-spacing: 0.03em;
 }
  
+
 /* PROJECT MEDIA */
 .project-image {
   width: 100%;
@@ -191,12 +214,14 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   border: 1px solid var(--border);
 }
  
+
 .project-image img {
   width: 100%;
   height: auto;
   display: block;
 }
  
+
 .project-image-placeholder {
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -209,6 +234,7 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   font-size: 0.82rem;
 }
  
+
 .project-image-placeholder svg {
   width: 32px;
   height: 32px;
@@ -219,6 +245,7 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   stroke-linejoin: round;
 }
  
+
 /* SIDE-BY-SIDE VIDEOS */
 .video-pair {
   display: grid;
@@ -227,6 +254,7 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   margin-bottom: 2.5rem;
 }
  
+
 .video-item {
   border-radius: 18px;
   overflow: hidden;
@@ -234,12 +262,14 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   border: 1px solid var(--border);
 }
  
+
 .video-item video {
   width: 100%;
   height: auto;
   display: block;
 }
  
+
 .video-item-placeholder {
   width: 100%;
   aspect-ratio: 9 / 16;
@@ -252,6 +282,7 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   font-size: 0.8rem;
 }
  
+
 .video-item-placeholder svg {
   width: 28px;
   height: 28px;
@@ -262,6 +293,7 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   stroke-linejoin: round;
 }
  
+
 .video-label {
   text-align: center;
   padding: 0.8rem 0.5rem;
@@ -270,6 +302,7 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   color: var(--text-secondary);
 }
  
+
 /* PROJECT GRID */
 .project-grid {
   display: grid;
@@ -277,6 +310,7 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   gap: 1.2rem;
 }
  
+
 .project-stat {
   background: var(--bg-card);
   border-radius: 18px;
@@ -286,8 +320,10 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
  
+
 .project-stat:hover { transform: translateY(-3px); box-shadow: var(--shadow-card-hover); }
  
+
 .project-stat .stat-number {
   font-size: 1.7rem;
   font-weight: 800;
@@ -296,19 +332,23 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   color: var(--blue);
 }
  
+
 .project-stat h4 { font-size: 0.88rem; font-weight: 600; margin-bottom: 0.5rem; }
 .project-stat p { font-size: 0.82rem; font-weight: 400; color: var(--text-secondary); line-height: 1.6; }
 .project-stat.wide { grid-column: 1 / -1; }
  
+
 /* SKILLS */
 .skills-inner { max-width: 980px; margin: 0 auto; padding-top: 2.5rem; }
  
+
 .skills-row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.2rem;
 }
  
+
 .skill-card {
   background: var(--bg-card);
   border-radius: 18px;
@@ -318,8 +358,10 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
  
+
 .skill-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-card-hover); }
  
+
 .skill-card h4 {
   font-size: 0.7rem;
   font-weight: 600;
@@ -329,11 +371,14 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   margin-bottom: 0.9rem;
 }
  
+
 .skill-card p { font-size: 0.84rem; color: var(--text-secondary); line-height: 1.7; }
  
+
 /* BACKGROUND */
 .bg-inner { max-width: 640px; margin: 0 auto; padding-top: 2.5rem; text-align: left; }
  
+
 .bg-entry { padding: 1.8rem 0; border-bottom: 1px solid var(--border); }
 .bg-entry:last-child { border-bottom: none; }
 .bg-entry-date { font-family: var(--mono); font-size: 0.68rem; color: var(--text-dim); margin-bottom: 0.4rem; }
@@ -341,6 +386,7 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
 .bg-entry .bg-role { font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 0.5rem; }
 .bg-entry p { font-size: 0.85rem; color: var(--text-dim); line-height: 1.7; }
  
+
 /* CONTACT */
 .contact-row {
   display: flex;
@@ -350,6 +396,7 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   margin-top: 2.5rem;
 }
  
+
 .contact-pill {
   font-family: var(--font);
   font-size: 0.82rem;
@@ -363,33 +410,40 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   transition: all 0.25s;
 }
  
+
 .contact-pill:hover { color: var(--text) !important; border-color: rgba(0,0,0,0.15); box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
 .contact-pill.primary { background: var(--blue); border-color: var(--blue); color: #fff !important; }
 .contact-pill.primary:hover { background: var(--blue-hover); border-color: var(--blue-hover); }
  
+
 /* FOOTER */
 footer { padding: 1.5rem 2rem; text-align: center; border-top: 1px solid var(--border); }
 footer p { font-size: 0.72rem; color: var(--text-dim); }
  
+
 /* ANIMATIONS */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(22px); }
   to { opacity: 1; transform: translateY(0); }
 }
  
+
 .reveal {
   opacity: 0;
   transform: translateY(28px);
   transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
  
+
 .reveal.visible { opacity: 1; transform: translateY(0); }
  
+
 .reveal-group .reveal:nth-child(1) { transition-delay: 0s; }
 .reveal-group .reveal:nth-child(2) { transition-delay: 0.07s; }
 .reveal-group .reveal:nth-child(3) { transition-delay: 0.14s; }
 .reveal-group .reveal:nth-child(4) { transition-delay: 0.21s; }
  
+
 @media (max-width: 768px) {
   nav { gap: 1.5rem; padding: 0 1rem; }
   .project-grid { grid-template-columns: 1fr; }
@@ -399,6 +453,7 @@ footer p { font-size: 0.72rem; color: var(--text-dim); }
   .video-pair { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
 }
  
+
 @media (max-width: 480px) {
   .skills-row { grid-template-columns: 1fr; }
   .hero-links { flex-direction: column; gap: 0.8rem; }
@@ -409,6 +464,7 @@ footer p { font-size: 0.72rem; color: var(--text-dim); }
 </head>
 <body>
  
+
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-name">David Shimizu</a>
@@ -418,16 +474,19 @@ footer p { font-size: 0.72rem; color: var(--text-dim); }
   <a href="#contact">Contact</a>
 </nav>
  
+
 <!-- HERO -->
 <section class="hero">
   <h1>David Shimizu</h1>
   <p class="hero-sub">Mechanical Engineering · UC San Diego '27</p>
   <div class="hero-links">
     <a href="#projects" class="btn btn-primary">View projects <span class="arrow">›</span></a>
+    <a href="mailto:shimizudavid04@gmail.com" class="btn btn-secondary">Contact me <span class="arrow">›</span></a>
     <a href="#contact" class="btn btn-secondary">Contact me <span class="arrow">›</span></a>
   </div>
 </section>
  
+
 <!-- PROJECTS INTRO -->
 <div class="full-section alt" id="projects">
   <div class="section-overline reveal">Projects</div>
@@ -435,6 +494,7 @@ footer p { font-size: 0.72rem; color: var(--text-dim); }
   <p class="section-sub reveal">A few recent projects involving custom PCBs, embedded firmware, and autonomous systems.</p>
 </div>
  
+
 <!-- PROJECT 1: MACROPAD -->
 <section class="project-section">
   <div class="project-header reveal">
@@ -443,6 +503,7 @@ footer p { font-size: 0.72rem; color: var(--text-dim); }
     <p class="project-tools">Summer 2025 · Altium Designer · C++ · Fusion 360</p>
   </div>
  
+
   <!-- MAIN IMAGE: replace placeholder with <img src="images/macropad.jpg" alt="Dual-radio macropad"> -->
   <div class="project-image reveal">
     <div class="project-image-placeholder">
@@ -451,6 +512,9 @@ footer p { font-size: 0.72rem; color: var(--text-dim); }
     </div>
   </div>
  
+    <img src="pictures.videos/calculator.jpg" alt="Dual-radio macropad">
+</div>
+
   <!-- SIDE-BY-SIDE VIDEOS -->
   <!--
     To add your videos, replace each placeholder div with:
@@ -459,22 +523,37 @@ footer p { font-size: 0.72rem; color: var(--text-dim); }
     </video>
   -->
   <div class="video-pair reveal">
+<div class="video-item">
+      <iframe 
+        src="https://youtube.com/shorts/I0QXNJweEUY?feature=share" 
+        allowfullscreen 
+        style="width:100%; aspect-ratio:9/16; border:none;">
+      </iframe>
+<div class="video-pair reveal">
     <div class="video-item">
-      <div class="video-item-placeholder">
-        <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-        Calculator video
-      </div>
+      <video autoplay muted loop playsinline>
+        <source src="pictures.videos/calculator.mp4" type="video/mp4">
+      </video>
       <div class="video-label">Calculator &amp; Display</div>
+</div>
+<div class="video-item">
+      <iframe 
+        src="https://youtube.com/shorts/I0QXNJweEUY?feature=share" 
+        allowfullscreen 
+        style="width:100%; aspect-ratio:9/16; border:none;">
+      </iframe>
     </div>
     <div class="video-item">
-      <div class="video-item-placeholder">
-        <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-        Keypad video
-      </div>
+      <video autoplay muted loop playsinline>
+        <source src="pictures.videos/keypad.mp4" type="video/mp4">
+      </video>
       <div class="video-label">BLE Macropad</div>
+</div>
+</div>
+ 
     </div>
   </div>
- 
+
   <div class="project-grid reveal-group">
     <div class="project-stat reveal">
       <div class="stat-number">&lt;4ms</div>
@@ -497,6 +576,7 @@ footer p { font-size: 0.72rem; color: var(--text-dim); }
   </div>
 </section>
  
+
 <!-- PROJECT 2: AUTONOMOUS VEHICLE -->
 <div class="full-section alt">
   <section class="project-section" style="padding-top:0;padding-bottom:0;max-width:980px;margin:0 auto;">
@@ -506,6 +586,7 @@ footer p { font-size: 0.72rem; color: var(--text-dim); }
       <p class="project-tools">Winter 2026 · MAE 148 · ROS2 · TensorFlow · HailoRT</p>
     </div>
  
+
     <!-- REPLACE: swap placeholder with <img src="images/vehicle.jpg" alt="Autonomous vehicle"> -->
     <div class="project-image reveal">
       <div class="project-image-placeholder">
@@ -514,6 +595,10 @@ footer p { font-size: 0.72rem; color: var(--text-dim); }
       </div>
     </div>
  
+<div class="project-image reveal">
+    <img src="pictures.videos/robocar.jpg" alt="Dual-radio macropad">
+</div>
+
     <div class="project-grid reveal-group">
       <div class="project-stat reveal">
         <div class="stat-number">6.8×</div>
@@ -537,6 +622,7 @@ footer p { font-size: 0.72rem; color: var(--text-dim); }
   </section>
 </div>
  
+
 <!-- PROJECT 3: BLE DONGLE -->
 <section class="project-section">
   <div class="project-header reveal">
@@ -545,6 +631,7 @@ footer p { font-size: 0.72rem; color: var(--text-dim); }
     <p class="project-tools">Fall 2025 · Altium Designer · Fusion 360</p>
   </div>
  
+
   <!-- REPLACE: swap placeholder with <img src="images/dongle.jpg" alt="BLE dongle"> -->
   <div class="project-image reveal">
     <div class="project-image-placeholder">
@@ -553,6 +640,9 @@ footer p { font-size: 0.72rem; color: var(--text-dim); }
     </div>
   </div>
  
+    <img src="pictures.videos/dongle.jpg" alt="Dual-radio macropad">
+</div>
+
   <div class="project-grid reveal-group">
     <div class="project-stat reveal">
       <div class="stat-number">280ft</div>
@@ -571,6 +661,7 @@ footer p { font-size: 0.72rem; color: var(--text-dim); }
   </div>
 </section>
  
+
 <!-- SKILLS -->
 <div class="full-section alt" id="skills">
   <div class="section-overline reveal">Skills</div>
@@ -597,6 +688,7 @@ footer p { font-size: 0.72rem; color: var(--text-dim); }
   </div>
 </div>
  
+
 <!-- BACKGROUND -->
 <section class="full-section" id="background">
   <div class="section-overline reveal">Background</div>
@@ -623,12 +715,14 @@ footer p { font-size: 0.72rem; color: var(--text-dim); }
   </div>
 </section>
  
+
 <!-- CONTACT -->
 <div class="full-section alt" id="contact">
   <div class="section-overline reveal">Contact</div>
   <h2 class="section-headline reveal">Get in touch</h2>
   <p class="section-sub reveal">I'm looking for Summer 2026 internships in embedded systems, hardware design, or robotics. Feel free to reach out.</p>
   <div class="contact-row reveal">
+    <a href="mailto:shimizudavid04@gmail.com" class="contact-pill primary">shimizudavid04@gmail.com</a>
     <a href="/cdn-cgi/l/email-protection#b2c1dadbdfdbc8c7d6d3c4dbd68286f2d5dfd3dbde9cd1dddf" class="contact-pill primary"><span class="__cf_email__" data-cfemail="b9cad1d0d4d0c3ccddd8cfd0dd898df9ded4d8d0d597dad6d4">[email&#160;protected]</span></a>
     <a href="tel:310-480-4685" class="contact-pill">310-480-4685</a>
     <a href="https://linkedin.com/in/davidshimizu" target="_blank" class="contact-pill">LinkedIn</a>
@@ -636,9 +730,22 @@ footer p { font-size: 0.72rem; color: var(--text-dim); }
   </div>
 </div>
  
+
 <footer>
   <p>&copy; 2026 David Shimizu</p>
 </footer>
  
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+ 
+</body>
+</html>
+
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const observer = new
