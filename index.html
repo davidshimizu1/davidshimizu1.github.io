@@ -252,8 +252,8 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   grid-template-columns: 1fr 1fr;
   gap: 1.2rem;
   margin-bottom: 2.5rem;
+  align-items: end;
 }
- 
 
 .video-item {
   border-radius: 18px;
@@ -261,12 +261,12 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   background: var(--bg-alt);
   border: 1px solid var(--border);
 }
- 
 
 .video-item video {
   width: 100%;
   height: auto;
   display: block;
+  object-fit: cover;
 }
  
 
@@ -606,13 +606,7 @@ footer p { font-size: 0.72rem; color: var(--text-dim); }
  
 
   <!-- REPLACE: swap placeholder with <img src="images/dongle.jpg" alt="BLE dongle"> -->
-  <div class="project-image reveal">
-    <div class="project-image-placeholder">
-      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-      Add a photo of your dongle here
-    </div>
   </div>
- 
     <img src="pictures.videos/dongle.png" alt="Dual-radio macropad">
 </div>
 
