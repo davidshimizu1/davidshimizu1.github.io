@@ -264,7 +264,7 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
 
 .video-item video {
   width: 100%;
-  height: auto;
+  aspect-ratio: 9 / 16;
   display: block;
   object-fit: cover;
 }
@@ -397,7 +397,18 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
 }
  
 
- 
+.contact-pill {
+  font-family: var(--font);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-secondary) !important;
+  padding: 0.65rem 1.5rem;
+  border-radius: 980px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+  transition: all 0.25s;
+}
 
 .contact-pill:hover { color: var(--text) !important; border-color: rgba(0,0,0,0.15); box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
 .contact-pill.primary { background: var(--blue); border-color: var(--blue); color: #fff !important; }
@@ -469,7 +480,6 @@ footer p { font-size: 0.72rem; color: var(--text-dim); }
   <p class="hero-sub">Mechanical Engineering · UC San Diego '27</p>
   <div class="hero-links">
     <a href="#projects" class="btn btn-primary">View projects <span class="arrow">›</span></a>
-    <a href="mailto:shimizudavid04@gmail.com" class="btn btn-secondary">Contact me <span class="arrow">›</span></a>
     <a href="#contact" class="btn btn-secondary">Contact me <span class="arrow">›</span></a>
   </div>
 </section>
@@ -644,7 +654,7 @@ footer p { font-size: 0.72rem; color: var(--text-dim); }
 </div>
  
 
-<!-- BACKGROUND -->
+<!-- BACKGROUND 
 <section class="full-section" id="background">
   <div class="section-overline reveal">Background</div>
   <h2 class="section-headline reveal">Education & experience</h2>
@@ -669,7 +679,7 @@ footer p { font-size: 0.72rem; color: var(--text-dim); }
     </div>
   </div>
 </section>
- 
+ -->
 
 <!-- CONTACT -->
 <div class="full-section alt" id="contact">
@@ -678,7 +688,6 @@ footer p { font-size: 0.72rem; color: var(--text-dim); }
   <p class="section-sub reveal">I'm looking for Summer 2026 internships in embedded systems, hardware design, or robotics. Feel free to reach out.</p>
   <div class="contact-row reveal">
     <a href="mailto:shimizudavid04@gmail.com" class="contact-pill primary">shimizudavid04@gmail.com</a>
-    <a href="/cdn-cgi/l/email-protection#b2c1dadbdfdbc8c7d6d3c4dbd68286f2d5dfd3dbde9cd1dddf" class="contact-pill primary"><span class="__cf_email__" data-cfemail="b9cad1d0d4d0c3ccddd8cfd0dd898df9ded4d8d0d597dad6d4">[email&#160;protected]</span></a>
     <a href="tel:310-480-4685" class="contact-pill">310-480-4685</a>
     <a href="https://linkedin.com/in/davidshimizu" target="_blank" class="contact-pill">LinkedIn</a>
     <a href="https://github.com/davidshimizu1" target="_blank" class="contact-pill">GitHub</a>
