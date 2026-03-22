@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>David Shimizu — Mechanical Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #0a0a0c;
+  --bg-elevated: #111115;
+  --bg-card: #16161b;
+  --border: #222228;
+  --border-accent: #2a2a32;
+  --text-primary: #e8e6e3;
+  --text-secondary: #8a8a96;
+  --text-muted: #55555f;
+  --accent: #c4f042;
+  --accent-dim: #5a6e20;
+  --accent-glow: rgba(196, 240, 66, 0.08);
+  --blue: #5b9cf5;
+  --serif: 'Instrument Serif', Georgia, serif;
+  --mono: 'DM Mono', 'Courier New', monospace;
+  --sans: 'Manrope', system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ===== NOISE OVERLAY ===== */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ===== NAV ===== */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 1.2rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(20px);
+  background: rgba(10,10,12,0.7);
+  border-bottom: 1px solid var(--border);
+}
+
+nav .logo {
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+}
+
+nav .logo span { color: var(--accent); }
+
+nav .links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+nav .links a {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  transition: color 0.3s;
+  position: relative;
+}
+
+nav .links a:hover { color: var(--accent); }
+
+nav .links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.3s;
+}
+
+nav .links a:hover::after { width: 100%; }
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8rem 3rem 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.hero-label {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.2s;
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(3rem, 7.5vw, 6.5rem);
+  font-weight: 400;
+  line-height: 1.05;
+  margin-bottom: 1.8rem;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.4s;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  max-width: 560px;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.6s;
+}
+
+.hero-meta {
+  display: flex;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.8s;
+}
+
+.hero-meta .meta-item {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.hero-meta .meta-item span {
+  display: block;
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  margin-top: 0.3rem;
+}
+
+.hero-grid-accent {
+  position: absolute;
+  right: 3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 280px;
+  height: 280px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  opacity: 0;
+  animation: fadeIn 1.2s ease forwards 1s;
+}
+
+.hero-grid-accent::before {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  border: 1px solid var(--border-accent);
+  border-radius: 2px;
+}
+
+.hero-grid-accent::after {
+  content: '01';
+  position: absolute;
+  top: -10px;
+  left: 16px;
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  color: var(--accent-dim);
+  background: var(--bg);
+  padding: 0 6px;
+}
+
+/* ===== SECTIONS ===== */
+section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 6rem 3rem;
+}
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  margin-bottom: 3.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1.2rem;
+}
+
+.section-number {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--accent-dim);
+  letter-spacing: 0.1em;
+}
+
+.section-title {
+  font-family: var(--serif);
+  font-size: 2.4rem;
+  font-weight: 400;
+}
+
+/* ===== PROJECT CARDS ===== */
+.projects-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.project-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.4s, transform 0.3s;
+}
+
+.project-card:hover {
+  border-color: var(--accent-dim);
+  transform: translateY(-2px);
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.project-card:hover::before { opacity: 1; }
+
+.project-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.2rem;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.project-card h3 {
+  font-family: var(--sans);
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.project-date {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  padding-top: 0.25rem;
+}
+
+.project-context {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--accent-dim);
+  margin-bottom: 1rem;
+  letter-spacing: 0.04em;
+}
+
+.project-desc {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+}
+
+.project-highlights {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.project-highlights li {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  padding-left: 1.4rem;
+  position: relative;
+  line-height: 1.6;
+}
+
+.project-highlights li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--accent-dim);
+  font-size: 0.75rem;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  color: var(--text-muted);
+  transition: border-color 0.3s, color 0.3s;
+}
+
+.project-card:hover .tag {
+  border-color: var(--border-accent);
+  color: var(--text-secondary);
+}
+
+/* ===== SKILLS SECTION ===== */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.skill-group {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.8rem;
+  transition: border-color 0.3s;
+}
+
+.skill-group:hover { border-color: var(--border-accent); }
+
+.skill-group h4 {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.skill-group p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+/* ===== EXPERIENCE / EDUCATION ===== */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.timeline-item:last-child { border-bottom: none; }
+
+.timeline-date {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  padding-top: 0.3rem;
+}
+
+.timeline-content h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.timeline-content .subtitle {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.6rem;
+}
+
+.timeline-content p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* ===== CONTACT ===== */
+.contact-section {
+  text-align: center;
+  padding: 6rem 3rem 8rem;
+}
+
+.contact-section h2 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 400;
+  margin-bottom: 1.2rem;
+}
+
+.contact-section h2 em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.contact-section p {
+  color: var(--text-secondary);
+  max-width: 480px;
+  margin: 0 auto 2.5rem;
+  font-size: 1rem;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.contact-link {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  padding: 0.7rem 1.6rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  transition: all 0.3s;
+  color: var(--text-secondary);
+}
+
+.contact-link:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-glow);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  padding: 2rem;
+  border-top: 1px solid var(--border);
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.5rem; }
+  nav .links { gap: 1rem; }
+  .hero { padding: 7rem 1.5rem 3rem; }
+  section { padding: 4rem 1.5rem; }
+  .hero-grid-accent { display: none; }
+  .timeline-item {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  .contact-section { padding: 4rem 1.5rem 6rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo"><span>//</span> david.shimizu</div>
+  <ul class="links">
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#background">Background</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-label">Mechanical Engineering · UCSD '27</div>
+  <h1>David<br>Shimizu</h1>
+  <p class="hero-subtitle">
+    Mechanical engineer building at the intersection of hardware design, embedded firmware, and autonomous systems. I turn ideas into PCBs, enclosures, and working firmware.
+  </p>
+  <div class="hero-meta">
+    <div class="meta-item">
+      Location
+      <span>San Diego, CA</span>
+    </div>
+    <div class="meta-item">
+      Focus
+      <span>Embedded Systems · PCB Design · Robotics</span>
+    </div>
+    <div class="meta-item">
+      GPA
+      <span>3.63 / 4.00</span>
+    </div>
+  </div>
+  <div class="hero-grid-accent"></div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-header reveal">
+    <span class="section-number">01</span>
+    <h2 class="section-title">Projects</h2>
+  </div>
+
+  <div class="projects-grid">
+
+    <!-- Project 1 -->
+    <div class="project-card reveal">
+      <div class="project-card-header">
+        <h3>Dual-Radio Calculator &amp; Bluetooth HID Macropad</h3>
+        <span class="project-date">Summer 2025</span>
+      </div>
+      <div class="project-context">Personal Project · Fusion 360, Altium Designer, C++</div>
+      <p class="project-desc">
+        A 25-key dual-radio device combining a Wi-Fi-connected calculator with a Bluetooth HID macropad, built on the ESP32-S3. Features a UART HMI display, real-time weather data, and a fully custom enclosure.
+      </p>
+      <ul class="project-highlights">
+        <li>Engineered an RF-optimized 4-layer PCB with onboard LiPo charging, dedicated power plane, and keep-out zones to prevent antenna detuning</li>
+        <li>Developed asynchronous C++ firmware for concurrent Wi-Fi REST API calls and BLE HID profile management with non-blocking architecture</li>
+        <li>Achieved &lt;4ms firmware-to-HID latency via interrupt-driven matrix scanning, reducing CPU usage and idle current draw</li>
+        <li>Designed multi-part Fusion 360 enclosure with mounting for mechanical switches, display, and battery housing</li>
+      </ul>
+      <div class="project-tags">
+        <span class="tag">ESP32-S3</span>
+        <span class="tag">Altium</span>
+        <span class="tag">BLE</span>
+        <span class="tag">Wi-Fi</span>
+        <span class="tag">C++</span>
+        <span class="tag">Fusion 360</span>
+        <span class="tag">RF Design</span>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project-card reveal">
+      <div class="project-card-header">
+        <h3>Autonomous Vehicle — MAE 148</h3>
+        <span class="project-date">Winter 2026</span>
+      </div>
+      <div class="project-context">UCSD Coursework · SolidWorks, ROS2, Linux, TensorFlow, AI HAT+</div>
+      <p class="project-desc">
+        Co-developed a 1/8-scale autonomous vehicle in ROS2 on a Raspberry Pi 5, implementing behavior-cloned camera control, RTK GPS waypoint following, and HSV-filtered lane detection.
+      </p>
+      <ul class="project-highlights">
+        <li>Configured OAK-D camera, VESC motor controller, and joystick within a ROS2/DonkeyCar pipeline, resolving serial/USB/firmware conflicts for stable 20 Hz closed-loop control</li>
+        <li>Designed and tuned PID controllers for steering and throttle, cutting lap time from 145s to 53s</li>
+        <li>Offloaded neural inference to Hailo AI HAT+ NPU, achieving a 6.8× speedup (309→2,112 FPS) while dropping CPU utilization from 16% to under 3%</li>
+        <li>Built benchmarking suite comparing CPU vs NPU performance across inference speed, driving pipeline, and system resources</li>
+      </ul>
+      <div class="project-tags">
+        <span class="tag">ROS2</span>
+        <span class="tag">Raspberry Pi 5</span>
+        <span class="tag">TensorFlow</span>
+        <span class="tag">HailoRT</span>
+        <span class="tag">PID Control</span>
+        <span class="tag">Computer Vision</span>
+      </div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="project-card reveal">
+      <div class="project-card-header">
+        <h3>Custom Bluetooth 5.0 HID Dongle</h3>
+        <span class="project-date">Fall 2025</span>
+      </div>
+      <div class="project-context">Personal Project · Fusion 360, Altium Designer</div>
+      <p class="project-desc">
+        Designed and validated a Bluetooth 5.0 HID dongle from schematic through field testing, with a custom 4-layer PCB featuring impedance-matched RF traces and a magnetic snap-fit enclosure.
+      </p>
+      <ul class="project-highlights">
+        <li>Designed a 4-layer Altium PCB with controlled-impedance RF traces for Bluetooth 5.0 operation</li>
+        <li>Performed tolerance stack-up analysis for a precision magnetic enclosure designed in Fusion 360</li>
+        <li>Validated 280ft LOS range, –88 dBm RSSI, &lt;20ms HID latency, and +8 dBm transmit power through field testing</li>
+      </ul>
+      <div class="project-tags">
+        <span class="tag">Altium</span>
+        <span class="tag">Bluetooth 5.0</span>
+        <span class="tag">RF Traces</span>
+        <span class="tag">Fusion 360</span>
+        <span class="tag">HID</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-header reveal">
+    <span class="section-number">02</span>
+    <h2 class="section-title">Technical Skills</h2>
+  </div>
+
+  <div class="skills-grid">
+    <div class="skill-group reveal">
+      <h4>Hardware & Systems</h4>
+      <p>Rapid Prototyping (3D Printing, Laser Cutting), PCB Design & Assembly, ESP32, Raspberry Pi</p>
+    </div>
+    <div class="skill-group reveal">
+      <h4>Software & CAD</h4>
+      <p>Fusion 360, SolidWorks, Altium Designer, PlatformIO, Git, HMI Design (UI/UX), Figma</p>
+    </div>
+    <div class="skill-group reveal">
+      <h4>Frameworks & Protocols</h4>
+      <p>ROS2, TensorFlow, HailoRT, Docker, UART, I2C, BLE, Wi-Fi, REST API</p>
+    </div>
+    <div class="skill-group reveal">
+      <h4>Languages & OS</h4>
+      <p>C++, Python, MATLAB, Bash, Linux (Ubuntu), LaTeX</p>
+    </div>
+  </div>
+</section>
+
+<!-- BACKGROUND -->
+<section id="background">
+  <div class="section-header reveal">
+    <span class="section-number">03</span>
+    <h2 class="section-title">Background</h2>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-item reveal">
+      <div class="timeline-date">Fall 2024 – Mar 2027</div>
+      <div class="timeline-content">
+        <h3>University of California San Diego</h3>
+        <div class="subtitle">B.S. Mechanical Engineering · GPA 3.63</div>
+        <p>Coursework in autonomous vehicles (MAE 148), embedded systems, and robotics. Active in hands-on engineering projects spanning PCB design, firmware development, and autonomous navigation.</p>
+      </div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-date">Spring 2023</div>
+      <div class="timeline-content">
+        <h3>NASA Community College Aerospace Scholar</h3>
+        <div class="subtitle">Aerospace Scholar · Remote</div>
+        <p>Collaborated in a 10-person team to design a Mars exploration mission under NASA mass constraints. Delivered a Preliminary Design Review to NASA experts, justifying subsystem choices and validating mission architecture.</p>
+      </div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-date">Fall 2022 – Spring 2024</div>
+      <div class="timeline-content">
+        <h3>El Camino College</h3>
+        <div class="subtitle">General Education & Engineering Prerequisites · Torrance, CA</div>
+        <p>Completed foundational engineering coursework before transferring to UC San Diego.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <h2 class="reveal">Let's <em>build</em> something.</h2>
+  <p class="reveal">Currently seeking Summer 2026 internships in embedded systems, hardware design, and robotics.</p>
+  <div class="contact-links reveal">
+    <a href="mailto:shimizudavid04@gmail.com" class="contact-link">shimizudavid04@gmail.com</a>
+    <a href="tel:310-480-4685" class="contact-link">310-480-4685</a>
+    <a href="https://linkedin.com/in/davidshimizu" target="_blank" class="contact-link">LinkedIn</a>
+    <a href="https://github.com/davidshimizu1" target="_blank" class="contact-link">GitHub</a>
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 David Shimizu — Built with care.
+</footer>
+
+<script>
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
