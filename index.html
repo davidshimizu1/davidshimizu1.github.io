@@ -618,7 +618,7 @@ footer p { font-size: 0.72rem; color: var(--text-dim); }
   <h2 class="section-headline reveal">Get in touch</h2>
   <p class="section-sub reveal">I'm looking for Summer 2026 internships in embedded systems, hardware design, or robotics. Feel free to reach out.</p>
   <div class="contact-row reveal">
-    <a href="/cdn-cgi/l/email-protection#b2c1dadbdfdbc8c7d6d3c4dbd68286f2d5dfd3dbde9cd1dddf" class="contact-pill primary"><span class="__cf_email__" data-cfemail="b9cad1d0d4d0c3ccddd8cfd0dd898df9ded4d8d0d597dad6d4">[email&#160;protected]</span></a>
+    <a href="mailto:shimizudavid04@gmail.com" class="contact-pill primary">shimizudavid04@gmail.com</a>
     <a href="tel:310-480-4685" class="contact-pill">310-480-4685</a>
     <a href="https://linkedin.com/in/davidshimizu" target="_blank" class="contact-pill">LinkedIn</a>
     <a href="https://github.com/davidshimizu1" target="_blank" class="contact-pill">GitHub</a>
@@ -629,5 +629,14 @@ footer p { font-size: 0.72rem; color: var(--text-dim); }
   <p>&copy; 2026 David Shimizu</p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-const observer = new
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
