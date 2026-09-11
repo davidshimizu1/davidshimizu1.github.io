@@ -203,6 +203,37 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   letter-spacing: 0.03em;
 }
 
+  .project-links {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 0.9rem;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.76rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  padding: 0.4rem 0.9rem;
+  border-radius: 980px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  transition: color 0.25s, border-color 0.25s;
+}
+
+.project-link:hover {
+  color: var(--text);
+  border-color: rgba(0,0,0,0.15);
+}
+
+.project-link svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
 
 /* PROJECT MEDIA */
 .project-image {
@@ -495,18 +526,22 @@ footer p { font-size: 0.72rem; color: var(--text-dim); }
 <!-- PROJECTS INTRO -->
 <div class="full-section alt" id="projects">
   <div class="section-overline reveal">Projects</div>
-  <h2 class="section-headline reveal">Designed, built, and measured</h2>
-  <p class="section-sub reveal">Thermal design, custom PCBs, embedded firmware, and autonomous systems. Every number below came off hardware I built and tested.</p>
-</div>
+  <h2 class="section-headline reveal">Hardware I've designed and built</h2>
 
 
 <!-- PROJECT 1: MACROPAD -->
 <section class="project-section">
   <div class="project-header reveal">
-    <h2>Dual-Radio Calculator &amp; BLE Macropad</h2>
-    <p class="project-tagline">A 25-key device that runs Wi-Fi and Bluetooth at the same time on an ESP32-S3.</p>
+    <h2>Dual-Radio Calculator &amp; Macropad</h2>
+    <p class="project-tagline">A 25-key handheld device that works as both a calculator and a macropad, running Wi-Fi and BLE simultaneously on a custom ESP32-S3 board.</p>
     <p class="project-tools">Summer 2025 · Altium Designer · C++ · Fusion 360</p>
   </div>
+  <div class="project-links">
+  <a href="https://github.com/davidshimizu1/calc.keypad" target="_blank" rel="noopener" class="project-link">
+    <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+    Source
+  </a>
+</div>
 
 
 <div class="project-image reveal">
