@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
- 
+
 
 :root {
   --bg: #ffffff;
@@ -25,10 +25,10 @@
   --font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --mono: 'JetBrains Mono', 'SF Mono', monospace;
 }
- 
+
 
 html { scroll-behavior: smooth; }
- 
+
 
 body {
   background: var(--bg);
@@ -39,14 +39,14 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
- 
+
 
 a { color: var(--blue); text-decoration: none; transition: color 0.2s; }
 a:hover { color: var(--blue-hover); }
- 
+
 
 ::selection { background: rgba(0, 113, 227, 0.15); }
- 
+
 
 /* NAV */
 nav {
@@ -63,12 +63,12 @@ nav {
   background: rgba(255, 255, 255, 0.72);
   border-bottom: 0.5px solid var(--border);
 }
- 
+
 
 nav a { font-size: 0.78rem; color: var(--text-secondary); transition: color 0.25s; }
 nav a:hover { color: var(--text); }
 nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
- 
+
 
 /* HERO */
 .hero {
@@ -80,7 +80,7 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   text-align: center;
   padding: 6rem 2rem;
 }
- 
+
 
 .hero h1 {
   font-size: clamp(3rem, 7vw, 5rem);
@@ -92,7 +92,7 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   opacity: 0;
   animation: fadeUp 0.9s ease forwards 0.15s;
 }
- 
+
 
 .hero-sub {
   font-size: 1.15rem;
@@ -101,7 +101,7 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   opacity: 0;
   animation: fadeUp 0.9s ease forwards 0.35s;
 }
- 
+
 
 .hero-links {
   display: flex;
@@ -110,7 +110,7 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   opacity: 0;
   animation: fadeUp 0.9s ease forwards 0.55s;
 }
- 
+
 
 .btn {
   font-family: var(--font);
@@ -125,7 +125,7 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   align-items: center;
   gap: 0.3rem;
 }
- 
+
 
 .btn-primary { background: var(--blue); color: #fff; }
 .btn-primary:hover { background: var(--blue-hover); color: #fff; }
@@ -133,12 +133,12 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
 .btn-secondary:hover { background: rgba(0,113,227,0.06); color: var(--blue); }
 .btn .arrow { font-size: 1.1rem; transition: transform 0.2s; }
 .btn:hover .arrow { transform: translateX(2px); }
- 
+
 
 /* SECTIONS */
 .full-section { padding: 6.5rem 2rem; text-align: center; }
 .full-section.alt { background: var(--bg-alt); }
- 
+
 
 .section-overline {
   font-family: var(--mono);
@@ -148,7 +148,7 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   color: var(--text-dim);
   margin-bottom: 0.7rem;
 }
- 
+
 
 .section-headline {
   font-size: clamp(1.9rem, 4vw, 3rem);
@@ -158,7 +158,7 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   color: var(--text);
   margin-bottom: 0.5rem;
 }
- 
+
 
 .section-sub {
   font-size: 1.05rem;
@@ -167,7 +167,7 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   max-width: 480px;
   margin: 0 auto;
 }
- 
+
 
 /* PROJECTS */
 .project-section {
@@ -175,10 +175,10 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   max-width: 980px;
   margin: 0 auto;
 }
- 
+
 
 .project-header { text-align: center; margin-bottom: 2.5rem; }
- 
+
 
 .project-header h2 {
   font-size: clamp(1.7rem, 3.2vw, 2.4rem);
@@ -186,7 +186,7 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   letter-spacing: -0.025em;
   margin-bottom: 0.5rem;
 }
- 
+
 
 .project-header .project-tagline {
   font-size: 1.02rem;
@@ -194,7 +194,7 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   color: var(--text-secondary);
   margin-bottom: 0.3rem;
 }
- 
+
 
 .project-header .project-tools {
   font-family: var(--mono);
@@ -202,7 +202,7 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   color: var(--text-dim);
   letter-spacing: 0.03em;
 }
- 
+
 
 /* PROJECT MEDIA */
 .project-image {
@@ -213,14 +213,14 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   background: var(--bg-alt);
   border: 1px solid var(--border);
 }
- 
+
 
 .project-image img {
   width: 100%;
   height: auto;
   display: block;
 }
- 
+
 
 .project-image-placeholder {
   width: 100%;
@@ -233,7 +233,7 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   color: var(--text-dim);
   font-size: 0.82rem;
 }
- 
+
 
 .project-image-placeholder svg {
   width: 32px;
@@ -244,7 +244,7 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   stroke-linecap: round;
   stroke-linejoin: round;
 }
- 
+
 
 /* SIDE-BY-SIDE VIDEOS */
 .video-pair {
@@ -268,7 +268,7 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   display: block;
   object-fit: cover;
 }
- 
+
 
 .video-item-placeholder {
   width: 100%;
@@ -281,7 +281,7 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   color: var(--text-dim);
   font-size: 0.8rem;
 }
- 
+
 
 .video-item-placeholder svg {
   width: 28px;
@@ -292,7 +292,7 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   stroke-linecap: round;
   stroke-linejoin: round;
 }
- 
+
 
 .video-label {
   text-align: center;
@@ -301,7 +301,7 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   font-weight: 500;
   color: var(--text-secondary);
 }
- 
+
 
 /* PROJECT GRID */
 .project-grid {
@@ -309,7 +309,7 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   grid-template-columns: 1fr 1fr;
   gap: 1.2rem;
 }
- 
+
 
 .project-stat {
   background: var(--bg-card);
@@ -319,10 +319,10 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   box-shadow: var(--shadow-card);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
- 
+
 
 .project-stat:hover { transform: translateY(-3px); box-shadow: var(--shadow-card-hover); }
- 
+
 
 .project-stat .stat-number {
   font-size: 1.7rem;
@@ -331,23 +331,23 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   margin-bottom: 0.3rem;
   color: var(--blue);
 }
- 
+
 
 .project-stat h4 { font-size: 0.88rem; font-weight: 600; margin-bottom: 0.5rem; }
 .project-stat p { font-size: 0.82rem; font-weight: 400; color: var(--text-secondary); line-height: 1.6; }
 .project-stat.wide { grid-column: 1 / -1; }
- 
+
 
 /* SKILLS */
 .skills-inner { max-width: 980px; margin: 0 auto; padding-top: 2.5rem; }
- 
+
 
 .skills-row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.2rem;
 }
- 
+
 
 .skill-card {
   background: var(--bg-card);
@@ -357,10 +357,10 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   box-shadow: var(--shadow-card);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
- 
+
 
 .skill-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-card-hover); }
- 
+
 
 .skill-card h4 {
   font-size: 0.7rem;
@@ -370,14 +370,14 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   color: var(--text-dim);
   margin-bottom: 0.9rem;
 }
- 
+
 
 .skill-card p { font-size: 0.84rem; color: var(--text-secondary); line-height: 1.7; }
- 
+
 
 /* BACKGROUND */
 .bg-inner { max-width: 640px; margin: 0 auto; padding-top: 2.5rem; text-align: left; }
- 
+
 
 .bg-entry { padding: 1.8rem 0; border-bottom: 1px solid var(--border); }
 .bg-entry:last-child { border-bottom: none; }
@@ -385,7 +385,7 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
 .bg-entry h3 { font-size: 1.2rem; font-weight: 600; margin-bottom: 0.1rem; }
 .bg-entry .bg-role { font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 0.5rem; }
 .bg-entry p { font-size: 0.85rem; color: var(--text-dim); line-height: 1.7; }
- 
+
 
 /* CONTACT */
 .contact-row {
@@ -395,7 +395,7 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   flex-wrap: wrap;
   margin-top: 2.5rem;
 }
- 
+
 
 .contact-pill {
   font-family: var(--font);
@@ -413,35 +413,35 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
 .contact-pill:hover { color: var(--text) !important; border-color: rgba(0,0,0,0.15); box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
 .contact-pill.primary { background: var(--blue); border-color: var(--blue); color: #fff !important; }
 .contact-pill.primary:hover { background: var(--blue-hover); border-color: var(--blue-hover); }
- 
+
 
 /* FOOTER */
 footer { padding: 1.5rem 2rem; text-align: center; border-top: 1px solid var(--border); }
 footer p { font-size: 0.72rem; color: var(--text-dim); }
- 
+
 
 /* ANIMATIONS */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(22px); }
   to { opacity: 1; transform: translateY(0); }
 }
- 
+
 
 .reveal {
   opacity: 0;
   transform: translateY(28px);
   transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
- 
+
 
 .reveal.visible { opacity: 1; transform: translateY(0); }
- 
+
 
 .reveal-group .reveal:nth-child(1) { transition-delay: 0s; }
 .reveal-group .reveal:nth-child(2) { transition-delay: 0.07s; }
 .reveal-group .reveal:nth-child(3) { transition-delay: 0.14s; }
 .reveal-group .reveal:nth-child(4) { transition-delay: 0.21s; }
- 
+
 
 @media (max-width: 768px) {
   nav { gap: 1.5rem; padding: 0 1rem; }
@@ -451,7 +451,7 @@ footer p { font-size: 0.72rem; color: var(--text-dim); }
   .project-section { padding: 3.5rem 1.5rem 4.5rem; }
   .video-pair { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
 }
- 
+
 
 @media (max-width: 480px) {
   .skills-row { grid-template-columns: 1fr; }
@@ -459,20 +459,27 @@ footer p { font-size: 0.72rem; color: var(--text-dim); }
   nav { gap: 1rem; }
   nav a { font-size: 0.7rem; }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero h1, .hero-sub, .hero-links { animation: none; opacity: 1; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 4px; }
 </style>
 </head>
 <body>
- 
+
 
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-name">David Shimizu</a>
   <a href="#projects">Projects</a>
   <a href="#skills">Skills</a>
-  <a href="#background">Background</a>
   <a href="#contact">Contact</a>
 </nav>
- 
+
 
 <!-- HERO -->
 <section class="hero">
@@ -483,15 +490,15 @@ footer p { font-size: 0.72rem; color: var(--text-dim); }
     <a href="#contact" class="btn btn-secondary">Contact me <span class="arrow">›</span></a>
   </div>
 </section>
- 
+
 
 <!-- PROJECTS INTRO -->
 <div class="full-section alt" id="projects">
   <div class="section-overline reveal">Projects</div>
-  <h2 class="section-headline reveal">What I've been working on</h2>
-  <p class="section-sub reveal">A few recent projects involving custom PCBs, embedded firmware, and autonomous systems.</p>
+  <h2 class="section-headline reveal">Designed, built, and measured</h2>
+  <p class="section-sub reveal">Thermal design, custom PCBs, embedded firmware, and autonomous systems. Every number below came off hardware I built and tested.</p>
 </div>
- 
+
 
 <!-- PROJECT 1: MACROPAD -->
 <section class="project-section">
@@ -500,20 +507,12 @@ footer p { font-size: 0.72rem; color: var(--text-dim); }
     <p class="project-tagline">A 25-key device that runs Wi-Fi and Bluetooth at the same time on an ESP32-S3.</p>
     <p class="project-tools">Summer 2025 · Altium Designer · C++ · Fusion 360</p>
   </div>
- 
 
-  <!-- MAIN IMAGE: replace placeholder with <img src="images/macropad.jpg" alt="Dual-radio macropad"> -->
 
 <div class="project-image reveal">
-    <img src="pictures.videos/calculator.png">
+    <img src="pictures.videos/calculator.png" alt="Dual-radio calculator and BLE macropad">
 </div>
-  <!-- SIDE-BY-SIDE VIDEOS -->
-  <!--
-    To add your videos, replace each placeholder div with:
-    <video autoplay muted loop playsinline>
-      <source src="images/calculator-demo.mp4" type="video/mp4">
-    </video>
-  -->
+
 <div class="video-pair reveal">
     <div class="video-item">
       <video autoplay muted loop playsinline>
@@ -534,24 +533,24 @@ footer p { font-size: 0.72rem; color: var(--text-dim); }
     <div class="project-stat reveal">
       <div class="stat-number">&lt;4ms</div>
       <h4>HID Latency</h4>
-      <p>Used interrupt-driven matrix scanning to keep keystroke response fast without wasting CPU cycles.</p>
+      <p>Used interrupt-driven matrix scanning and deep sleep during inactivity, with measured keypress-to-HID-report latency below 4 ms.</p>
     </div>
     <div class="project-stat reveal">
       <div class="stat-number">4-Layer</div>
       <h4>RF-Optimized PCB</h4>
-      <p>Designed a 4-layer board with a dedicated power plane and keep-out zones around the antenna to avoid detuning.</p>
+      <p>Designed a 4-layer board with an onboard LiPo charging circuit and RF keep-out zones to prevent antenna detuning.</p>
     </div>
     <div class="project-stat reveal">
-      <h4>Async Firmware</h4>
-      <p>Wrote non-blocking C++ so the device can fetch weather data over Wi-Fi and handle BLE keystrokes at the same time without either slowing down.</p>
+      <h4>Material Selection</h4>
+      <p>Specified MJF Nylon PA12 for enclosure toughness, SLA resin for keycap feature resolution, and a 1.2 mm FR4 switch plate for stiffness during keystrokes.</p>
     </div>
     <div class="project-stat reveal">
-      <h4>Custom Enclosure</h4>
-      <p>Designed a multi-part case in Fusion 360 with mounting for mechanical switches, a UART display, and a LiPo battery.</p>
+      <h4>Enclosure Design</h4>
+      <p>Designed a multi-part case and switch mounting plate in Fusion 360 with heat-set inserts and integrated mounts for a display and LiPo battery.</p>
     </div>
   </div>
 </section>
- 
+
 
 <!-- PROJECT 2: AUTONOMOUS VEHICLE -->
 <div class="full-section alt">
@@ -559,58 +558,56 @@ footer p { font-size: 0.72rem; color: var(--text-dim); }
     <div class="project-header reveal">
       <h2>Autonomous Vehicle</h2>
       <p class="project-tagline">A 1/8-scale car that drives itself using camera AI, GPS waypoints, and lane detection.</p>
-      <p class="project-tools">Winter 2026 · MAE 148 · ROS2 · TensorFlow · HailoRT</p>
+      <p class="project-tools">Winter 2026 · MAE 148 · ROS2 · SolidWorks · AI HAT+</p>
     </div>
- 
 
-    <!-- REPLACE: swap placeholder with <img src="images/vehicle.jpg" alt="Autonomous vehicle"> -->
+
 <div class="project-image reveal">
-    <img src="pictures.videos/robocar.png">
+    <img src="pictures.videos/robocar.png" alt="1/8-scale autonomous vehicle">
 </div>
 
     <div class="project-grid reveal-group">
       <div class="project-stat reveal">
-        <div class="stat-number">6.8×</div>
-        <h4>Inference Speedup</h4>
-        <p>Moved neural network inference to the Hailo NPU, going from 309 FPS to 2,112 FPS and dropping CPU usage from 16% to under 3%.</p>
+        <div class="stat-number">16% → &lt;3%</div>
+        <h4>CPU Load</h4>
+        <p>Offloaded vision inference to a Hailo AI HAT+ NPU and eliminated per-frame connection overhead, cutting CPU load from 16% to under 3% and raising standalone model benchmark throughput from 309 to 2,112 FPS.</p>
       </div>
       <div class="project-stat reveal">
-        <div class="stat-number">53s</div>
+        <div class="stat-number">145s → 53s</div>
         <h4>Lap Time</h4>
-        <p>Started at 145 seconds. Got it down to 53 by tuning PID controllers for steering and throttle.</p>
+        <p>Tuned steering and throttle PID controllers empirically on track, balancing response speed against overshoot and oscillation across successive runs without sacrificing cornering stability.</p>
       </div>
       <div class="project-stat reveal">
-        <h4>Sensor Integration</h4>
-        <p>Set up an OAK-D camera, VESC motor controller, and joystick in a ROS2/DonkeyCar pipeline. Spent a lot of time debugging serial and USB conflicts to get stable 20 Hz control.</p>
+        <h4>Mechanical Packaging</h4>
+        <p>Designed and 3D-printed a chassis mounting plate and sensor housing in SolidWorks to package the Raspberry Pi 5, OAK-D camera, and VESC, optimizing weight distribution and holding critical sensor alignment.</p>
       </div>
       <div class="project-stat reveal">
-        <h4>Benchmarking</h4>
-        <p>Built a test suite to compare CPU vs NPU performance across inference speed, driving behavior, and system resource usage.</p>
+        <h4>System Integration</h4>
+        <p>Integrated the powertrain and sensor suite on a 4-person team, delivering camera-based path following, RTK GPS waypoint navigation, and vision line following at 20 Hz closed-loop control.</p>
       </div>
     </div>
   </section>
 </div>
- 
+
 
 <!-- PROJECT 3: BLE DONGLE -->
 <section class="project-section">
   <div class="project-header reveal">
     <h2>Bluetooth 5.0 HID Dongle</h2>
-    <p class="project-tagline">A custom BLE dongle with impedance-matched RF traces and a magnetic snap-fit case.</p>
+    <p class="project-tagline">A custom BLE dongle with impedance-matched RF traces and a press-fit case.</p>
     <p class="project-tools">Fall 2025 · Altium Designer · Fusion 360</p>
   </div>
- 
 
-  <!-- REPLACE: swap placeholder with <img src="images/dongle.jpg" alt="BLE dongle"> -->
+
 <div class="project-image reveal">
-    <img src="pictures.videos/dongle.png">
+    <img src="pictures.videos/dongle.png" alt="Bluetooth 5.0 HID dongle">
 </div>
 
   <div class="project-grid reveal-group">
     <div class="project-stat reveal">
       <div class="stat-number">280ft</div>
       <h4>Range</h4>
-      <p>Tested line-of-sight range at 280 feet with –88 dBm RSSI and +8 dBm transmit power.</p>
+      <p>Verified 280 ft line-of-sight range at –88 dBm RSSI on a 4-layer PCB with impedance-matched RF traces.</p>
     </div>
     <div class="project-stat reveal">
       <div class="stat-number">&lt;20ms</div>
@@ -618,12 +615,12 @@ footer p { font-size: 0.72rem; color: var(--text-dim); }
       <p>Fast enough for real-time keyboard and mouse input over Bluetooth.</p>
     </div>
     <div class="project-stat wide reveal">
-      <h4>Full Hardware Design</h4>
-      <p>Designed the 4-layer PCB in Altium with controlled-impedance RF traces, and made a magnetic enclosure in Fusion 360 with tolerance stack-up analysis for a precise fit.</p>
+      <h4>Tolerance Stack-Up</h4>
+      <p>Designed a two-piece press-fit enclosure and ran a tolerance stack-up to hold fit across 3D-printed parts, accounting for print process variation on mating features.</p>
     </div>
   </div>
 </section>
- 
+
 
 <!-- SKILLS -->
 <div class="full-section alt" id="skills">
@@ -632,71 +629,47 @@ footer p { font-size: 0.72rem; color: var(--text-dim); }
   <div class="skills-inner">
     <div class="skills-row reveal-group">
       <div class="skill-card reveal">
-        <h4>Hardware</h4>
-        <p>PCB Design & Assembly, 3D Printing, Laser Cutting, ESP32, Raspberry Pi</p>
+        <h4>Mechanical Design</h4>
+        <p>SolidWorks, Fusion 360, GD&amp;T, Tolerance Stack-Up Analysis, Enclosure Design, DFM</p>
       </div>
       <div class="skill-card reveal">
-        <h4>Software & CAD</h4>
-        <p>Altium Designer, Fusion 360, SolidWorks, PlatformIO, Git, Figma</p>
+        <h4>Analysis &amp; Simulation</h4>
+        <p>FEA (ANSYS, SolidWorks Simulation), CFD (SolidWorks Flow Simulation), Thermal Design, MATLAB, PID Control</p>
       </div>
       <div class="skill-card reveal">
-        <h4>Frameworks</h4>
-        <p>ROS2, TensorFlow, HailoRT, Docker, UART, I2C, BLE, Wi-Fi, REST API</p>
+        <h4>Manufacturing</h4>
+        <p>CNC Machining, 3D Printing (FDM, SLA, MJF), Laser Cutting, PCB Assembly</p>
       </div>
       <div class="skill-card reveal">
-        <h4>Languages</h4>
-        <p>C++, Python, MATLAB, Bash, Linux, LaTeX</p>
+        <h4>Embedded &amp; Electronics</h4>
+        <p>Altium Designer, ESP32, C++, Python, ROS 2, BLE, UART, I2C, Linux, Git</p>
       </div>
     </div>
   </div>
 </div>
- 
 
-<!-- BACKGROUND 
-<section class="full-section" id="background">
-  <div class="section-overline reveal">Background</div>
-  <h2 class="section-headline reveal">Education & experience</h2>
-  <div class="bg-inner">
-    <div class="bg-entry reveal">
-      <div class="bg-entry-date">2024 – 2027</div>
-      <h3>UC San Diego</h3>
-      <div class="bg-role">B.S. Mechanical Engineering · 3.63 GPA</div>
-      <p>Taking courses in autonomous vehicles (MAE 148), embedded systems, and robotics. Most of my time outside class goes into building hardware projects.</p>
-    </div>
-    <div class="bg-entry reveal">
-      <div class="bg-entry-date">Spring 2023</div>
-      <h3>NASA NCAS</h3>
-      <div class="bg-role">Aerospace Scholar</div>
-      <p>Worked with a 10-person team to design a Mars exploration mission under NASA's mass constraints. Presented our design review to NASA engineers.</p>
-    </div>
-    <div class="bg-entry reveal">
-      <div class="bg-entry-date">2022 – 2024</div>
-      <h3>El Camino College</h3>
-      <div class="bg-role">Engineering Prerequisites · Torrance, CA</div>
-      <p>Completed my engineering prerequisites here before transferring to UCSD.</p>
-    </div>
-  </div>
-</section>
- -->
 
 <!-- CONTACT -->
 <div class="full-section alt" id="contact">
   <div class="section-overline reveal">Contact</div>
   <h2 class="section-headline reveal">Get in touch</h2>
-  <p class="section-sub reveal">I'm looking for Summer 2026 internships in embedded systems, hardware design, or robotics. Feel free to reach out.</p>
+  <p class="section-sub reveal">I graduate in March 2027 and I'm looking for full-time roles in mechanical design, thermal, hardware, or robotics. Available to start March 2027.</p>
   <div class="contact-row reveal">
     <a href="mailto:shimizudavid04@gmail.com" class="contact-pill primary">shimizudavid04@gmail.com</a>
     <a href="tel:310-480-4685" class="contact-pill">310-480-4685</a>
-    <a href="https://linkedin.com/in/davidshimizu" target="_blank" class="contact-pill">LinkedIn</a>
-    <a href="https://github.com/davidshimizu1" target="_blank" class="contact-pill">GitHub</a>
+    <a href="https://linkedin.com/in/davidshimizu" target="_blank" rel="noopener" class="contact-pill">LinkedIn</a>
+    <a href="https://github.com/davidshimizu1" target="_blank" rel="noopener" class="contact-pill">GitHub</a>
+    <!-- Add your resume PDF to the repo root, then uncomment:
+    <a href="shimizu_david_resume.pdf" target="_blank" rel="noopener" class="contact-pill">Resume</a>
+    -->
   </div>
 </div>
- 
+
 
 <footer>
   <p>&copy; 2026 David Shimizu</p>
 </footer>
- 
+
 <script>
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -705,6 +678,6 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
- 
+
 </body>
 </html>
