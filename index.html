@@ -183,7 +183,35 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
 }
 
 
-.project-header { text-align: center; margin-bottom: 2.5rem; }
+.project-header { text-align: center; margin-bottom: 2.5rem; scroll-margin-top: 90px; }
+
+
+/* PROJECT INDEX */
+.project-index {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 2rem;
+}
+
+
+.project-index a {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  padding: 0.5rem 1.1rem;
+  border-radius: 980px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  transition: color 0.25s, border-color 0.25s;
+}
+
+
+.project-index a:hover {
+  color: var(--text);
+  border-color: rgba(0,0,0,0.15);
+}
 
 
 .project-header h2 {
@@ -518,12 +546,18 @@ footer p { font-size: 0.72rem; color: var(--text-dim); }
 <div class="full-section alt" id="projects">
   <div class="section-overline reveal">Projects</div>
   <h2 class="section-headline reveal">Hardware I've designed and built</h2>
+  <div class="project-index reveal">
+    <a href="#thermal">Thermal design</a>
+    <a href="#macropad">Calculator &amp; macropad</a>
+    <a href="#vehicle">Autonomous vehicle</a>
+    <a href="#dongle">BLE dongle</a>
+  </div>
 </div>
 
 
 <!-- PROJECT 1: EDGE COMPUTE THERMAL DESIGN -->
 <section class="project-section">
-  <div class="project-header reveal">
+  <div class="project-header reveal" id="thermal">
     <h2>Edge Compute Thermal Design</h2>
     <p class="project-tagline">A custom active cooling assembly for a Jetson Orin Nano running sustained AI inference.</p>
     <p class="project-tools">Summer 2026 · SolidWorks · Flow Simulation · CNC</p>
@@ -576,7 +610,7 @@ footer p { font-size: 0.72rem; color: var(--text-dim); }
 <!-- PROJECT 2: MACROPAD -->
 <div class="full-section alt">
   <section class="project-section">
-    <div class="project-header reveal">
+    <div class="project-header reveal" id="macropad">
       <h2>Dual-Radio Calculator &amp; Macropad</h2>
       <p class="project-tagline">A 25-key handheld device that works as both a calculator and a macropad, running Wi-Fi and BLE simultaneously on a custom ESP32-S3 board.</p>
       <p class="project-tools">Summer 2025 · Altium Designer · C++ · Fusion 360</p>
@@ -633,7 +667,7 @@ footer p { font-size: 0.72rem; color: var(--text-dim); }
 
 <!-- PROJECT 3: AUTONOMOUS VEHICLE -->
 <section class="project-section">
-  <div class="project-header reveal">
+  <div class="project-header reveal" id="vehicle">
     <h2>Autonomous Vehicle</h2>
     <p class="project-tagline">A 1/8-scale car that drives itself using camera AI, GPS waypoints, and lane detection.</p>
     <p class="project-tools">Winter 2026 · MAE 148 · ROS2 · SolidWorks · AI HAT+</p>
@@ -675,7 +709,7 @@ footer p { font-size: 0.72rem; color: var(--text-dim); }
 <!-- PROJECT 4: BLE DONGLE -->
 <div class="full-section alt">
   <section class="project-section">
-    <div class="project-header reveal">
+    <div class="project-header reveal" id="dongle">
       <h2>Bluetooth 5.0 HID Dongle</h2>
       <p class="project-tagline">A custom BLE dongle with impedance-matched RF traces and a press-fit case.</p>
       <p class="project-tools">Fall 2025 · Altium Designer · Fusion 360</p>
