@@ -176,6 +176,12 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   margin: 0 auto;
 }
 
+/* a project nested inside a grey band supplies its own padding via the band */
+.full-section .project-section {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 
 .project-header { text-align: center; margin-bottom: 2.5rem; }
 
@@ -203,12 +209,14 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   letter-spacing: 0.03em;
 }
 
-  .project-links {
+
+.project-links {
   display: flex;
   justify-content: center;
   gap: 0.6rem;
   margin-top: 0.9rem;
 }
+
 
 .project-link {
   display: inline-flex;
@@ -224,16 +232,19 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   transition: color 0.25s, border-color 0.25s;
 }
 
+
 .project-link:hover {
   color: var(--text);
   border-color: rgba(0,0,0,0.15);
 }
+
 
 .project-link svg {
   width: 14px;
   height: 14px;
   fill: currentColor;
 }
+
 
 /* PROJECT MEDIA */
 .project-image {
@@ -253,27 +264,37 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
 }
 
 
-.project-image-placeholder {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 0.5rem;
-  color: var(--text-dim);
-  font-size: 0.82rem;
+/* SIDE-BY-SIDE IMAGES */
+.image-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-bottom: 2.5rem;
 }
 
 
-.project-image-placeholder svg {
-  width: 32px;
-  height: 32px;
-  stroke: var(--text-dim);
-  fill: none;
-  stroke-width: 1.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+.image-item {
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+}
+
+
+.image-item img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+
+.image-label {
+  text-align: center;
+  padding: 0.8rem 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-secondary);
 }
 
 
@@ -286,6 +307,7 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   align-items: end;
 }
 
+
 .video-item {
   border-radius: 18px;
   overflow: hidden;
@@ -293,35 +315,12 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   border: 1px solid var(--border);
 }
 
+
 .video-item video {
   width: 100%;
   aspect-ratio: 9 / 16;
   display: block;
   object-fit: cover;
-}
-
-
-.video-item-placeholder {
-  width: 100%;
-  aspect-ratio: 9 / 16;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 0.5rem;
-  color: var(--text-dim);
-  font-size: 0.8rem;
-}
-
-
-.video-item-placeholder svg {
-  width: 28px;
-  height: 28px;
-  stroke: var(--text-dim);
-  fill: none;
-  stroke-width: 1.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
 }
 
 
@@ -406,18 +405,6 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
 .skill-card p { font-size: 0.84rem; color: var(--text-secondary); line-height: 1.7; }
 
 
-/* BACKGROUND */
-.bg-inner { max-width: 640px; margin: 0 auto; padding-top: 2.5rem; text-align: left; }
-
-
-.bg-entry { padding: 1.8rem 0; border-bottom: 1px solid var(--border); }
-.bg-entry:last-child { border-bottom: none; }
-.bg-entry-date { font-family: var(--mono); font-size: 0.68rem; color: var(--text-dim); margin-bottom: 0.4rem; }
-.bg-entry h3 { font-size: 1.2rem; font-weight: 600; margin-bottom: 0.1rem; }
-.bg-entry .bg-role { font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 0.5rem; }
-.bg-entry p { font-size: 0.85rem; color: var(--text-dim); line-height: 1.7; }
-
-
 /* CONTACT */
 .contact-row {
   display: flex;
@@ -441,13 +428,14 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   transition: all 0.25s;
 }
 
+
 .contact-pill:hover { color: var(--text) !important; border-color: rgba(0,0,0,0.15); box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
 .contact-pill.primary { background: var(--blue); border-color: var(--blue); color: #fff !important; }
 .contact-pill.primary:hover { background: var(--blue-hover); border-color: var(--blue-hover); }
 
 
 /* FOOTER */
-footer { padding: 1.5rem 2rem; text-align: center; border-top: 1px solid var(--border); }
+footer { padding: 1.5rem 2rem; text-align: center; background: var(--bg-alt); border-top: 1px solid var(--border); }
 footer p { font-size: 0.72rem; color: var(--text-dim); }
 
 
@@ -481,6 +469,7 @@ footer p { font-size: 0.72rem; color: var(--text-dim); }
   .full-section { padding: 4.5rem 1.5rem; }
   .project-section { padding: 3.5rem 1.5rem 4.5rem; }
   .video-pair { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+  .image-pair { grid-template-columns: 1fr; gap: 1rem; }
 }
 
 
@@ -491,11 +480,13 @@ footer p { font-size: 0.72rem; color: var(--text-dim); }
   nav a { font-size: 0.7rem; }
 }
 
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .hero h1, .hero-sub, .hero-links { animation: none; opacity: 1; }
   .reveal { opacity: 1; transform: none; transition: none; }
 }
+
 
 :focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 4px; }
 </style>
@@ -530,148 +521,198 @@ footer p { font-size: 0.72rem; color: var(--text-dim); }
 </div>
 
 
-<!-- PROJECT 1: MACROPAD -->
+<!-- PROJECT 1: EDGE COMPUTE THERMAL DESIGN -->
 <section class="project-section">
   <div class="project-header reveal">
-    <h2>Dual-Radio Calculator &amp; Macropad</h2>
-    <p class="project-tagline">A 25-key handheld device that works as both a calculator and a macropad, running Wi-Fi and BLE simultaneously on a custom ESP32-S3 board.</p>
-    <p class="project-tools">Summer 2025 · Altium Designer · C++ · Fusion 360</p>
+    <h2>Edge Compute Thermal Design</h2>
+    <p class="project-tagline">A custom active cooling assembly for a Jetson Orin Nano running sustained AI inference.</p>
+    <p class="project-tools">Summer 2026 · SolidWorks · Flow Simulation · CNC</p>
+    <div class="project-links">
+      <a href="https://github.com/davidshimizu1/REPO-NAME" target="_blank" rel="noopener" class="project-link">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        Design files
+      </a>
+    </div>
   </div>
-  <div class="project-links">
-  <a href="https://github.com/davidshimizu1/calc.keypad" target="_blank" rel="noopener" class="project-link">
-    <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-    Source
-  </a>
-</div>
 
+  <div class="project-image reveal">
+    <img src="pictures.videos/main.png" alt="Edge compute thermal module">
+  </div>
 
-<div class="project-image reveal">
-    <img src="pictures.videos/calculator.png" alt="Dual-radio calculator and BLE macropad">
-</div>
-
-<div class="video-pair reveal">
-    <div class="video-item">
-      <video autoplay muted loop playsinline>
-        <source src="pictures.videos/calculator.mp4" type="video/mp4">
-      </video>
-      <div class="video-label">Calculator</div>
-</div>
-    <div class="video-item">
-      <video autoplay muted loop playsinline>
-        <source src="pictures.videos/keypad.mp4" type="video/mp4">
-      </video>
-      <div class="video-label">BLE Macropad</div>
-</div>
-</div>
-
+  <div class="image-pair reveal">
+    <div class="image-item">
+      <img src="pictures.videos/heatsink.png" alt="Bonded-fin heatsink on CNC-machined 6061 base">
+      <div class="image-label">Bonded-fin heatsink</div>
+    </div>
+    <div class="image-item">
+      <img src="pictures.videos/fan-duct.png" alt="Ducted fan path">
+      <div class="image-label">Fan and duct</div>
+    </div>
+  </div>
 
   <div class="project-grid reveal-group">
     <div class="project-stat reveal">
-      <div class="stat-number">&lt;4ms</div>
-      <h4>HID Latency</h4>
-      <p>Used interrupt-driven matrix scanning and deep sleep during inactivity, with measured keypress-to-HID-report latency below 4 ms.</p>
+      <div class="stat-number">75°C → 62°C</div>
+      <h4>Steady-State Temperature</h4>
+      <p>Designed and tested a cooling assembly for a Jetson Orin Nano dissipating 21 W under sustained inference, measured against the stock cooler at matched power and ambient temperature.</p>
     </div>
     <div class="project-stat reveal">
-      <div class="stat-number">4-Layer</div>
-      <h4>RF-Optimized PCB</h4>
-      <p>Designed a 4-layer board with an onboard LiPo charging circuit and RF keep-out zones to prevent antenna detuning.</p>
+      <div class="stat-number">12</div>
+      <h4>Configurations Swept</h4>
+      <p>Swept fin count and spacing across 12 configurations in SolidWorks Flow Simulation using the fan's P-Q curve, selecting 18 fins at 1.5 mm spacing to balance added surface area against rising flow impedance.</p>
     </div>
     <div class="project-stat reveal">
-      <h4>Material Selection</h4>
-      <p>Specified MJF Nylon PA12 for enclosure toughness, SLA resin for keycap feature resolution, and a 1.2 mm FR4 switch plate for stiffness during keystrokes.</p>
+      <h4>Mechanical Packaging</h4>
+      <p>Packaged a bonded-fin heatsink on a CNC-machined 6061 base with a ducted fan path and 3D-printed enclosure, preloading the module to 30 psi with spring-loaded fasteners under NVIDIA's 60 psi limit.</p>
     </div>
     <div class="project-stat reveal">
-      <h4>Enclosure Design</h4>
-      <p>Designed a multi-part case and switch mounting plate in Fusion 360 with heat-set inserts and integrated mounts for a display and LiPo battery.</p>
+      <h4>Design for Manufacturing</h4>
+      <p>Increased fin-slot clearance by 0.2 mm per side after supplier DFM review to resolve internal-corner interference.</p>
     </div>
   </div>
 </section>
 
 
-<!-- PROJECT 2: AUTONOMOUS VEHICLE -->
+<!-- PROJECT 2: MACROPAD -->
 <div class="full-section alt">
-  <section class="project-section" style="padding-top:0;padding-bottom:0;max-width:980px;margin:0 auto;">
+  <section class="project-section">
     <div class="project-header reveal">
-      <h2>Autonomous Vehicle</h2>
-      <p class="project-tagline">A 1/8-scale car that drives itself using camera AI, GPS waypoints, and lane detection.</p>
-      <p class="project-tools">Winter 2026 · MAE 148 · ROS2 · SolidWorks · AI HAT+</p>
+      <h2>Dual-Radio Calculator &amp; Macropad</h2>
+      <p class="project-tagline">A 25-key handheld device that works as both a calculator and a macropad, running Wi-Fi and BLE simultaneously on a custom ESP32-S3 board.</p>
+      <p class="project-tools">Summer 2025 · Altium Designer · C++ · Fusion 360</p>
+      <div class="project-links">
+        <a href="https://github.com/davidshimizu1/calc.keypad" target="_blank" rel="noopener" class="project-link">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          Source
+        </a>
+      </div>
     </div>
 
-    <div class="project-links">
-  <a href="https://github.com/davidshimizu1/148-winter-2026-final-project-team-6" target="_blank" rel="noopener" class="project-link">
-    <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-    Source
-  </a>
-</div>
+    <div class="project-image reveal">
+      <img src="pictures.videos/calculator.png" alt="Dual-radio calculator and BLE macropad">
+    </div>
 
-<div class="project-image reveal">
-    <img src="pictures.videos/robocar.png" alt="1/8-scale autonomous vehicle">
-</div>
+    <div class="video-pair reveal">
+      <div class="video-item">
+        <video autoplay muted loop playsinline>
+          <source src="pictures.videos/calculator.mp4" type="video/mp4">
+        </video>
+        <div class="video-label">Calculator</div>
+      </div>
+      <div class="video-item">
+        <video autoplay muted loop playsinline>
+          <source src="pictures.videos/keypad.mp4" type="video/mp4">
+        </video>
+        <div class="video-label">BLE Macropad</div>
+      </div>
+    </div>
 
     <div class="project-grid reveal-group">
       <div class="project-stat reveal">
-        <div class="stat-number">16% → &lt;3%</div>
-        <h4>CPU Load</h4>
-        <p>Offloaded vision inference to a Hailo AI HAT+ NPU and eliminated per-frame connection overhead, cutting CPU load from 16% to under 3% and raising standalone model benchmark throughput from 309 to 2,112 FPS.</p>
+        <div class="stat-number">&lt;4ms</div>
+        <h4>HID Latency</h4>
+        <p>Used interrupt-driven matrix scanning and deep sleep during inactivity, with measured keypress-to-HID-report latency below 4 ms.</p>
       </div>
       <div class="project-stat reveal">
-        <div class="stat-number">145s → 53s</div>
-        <h4>Lap Time</h4>
-        <p>Tuned steering and throttle PID controllers empirically on track, balancing response speed against overshoot and oscillation across successive runs without sacrificing cornering stability.</p>
+        <div class="stat-number">4-Layer</div>
+        <h4>RF-Optimized PCB</h4>
+        <p>Designed a 4-layer board with an onboard LiPo charging circuit and RF keep-out zones to prevent antenna detuning.</p>
       </div>
       <div class="project-stat reveal">
-        <h4>Mechanical Packaging</h4>
-        <p>Designed and 3D-printed a chassis mounting plate and sensor housing in SolidWorks to package the Raspberry Pi 5, OAK-D camera, and VESC, optimizing weight distribution and holding critical sensor alignment.</p>
+        <h4>Material Selection</h4>
+        <p>Specified MJF Nylon PA12 for enclosure toughness, SLA resin for keycap feature resolution, and a 1.2 mm FR4 switch plate for stiffness during keystrokes.</p>
       </div>
       <div class="project-stat reveal">
-        <h4>System Integration</h4>
-        <p>Integrated the powertrain and sensor suite on a 4-person team, delivering camera-based path following, RTK GPS waypoint navigation, and vision line following at 20 Hz closed-loop control.</p>
+        <h4>Enclosure Design</h4>
+        <p>Designed a multi-part case and switch mounting plate in Fusion 360 with heat-set inserts and integrated mounts for a display and LiPo battery.</p>
       </div>
     </div>
   </section>
 </div>
 
 
-<!-- PROJECT 3: BLE DONGLE -->
+<!-- PROJECT 3: AUTONOMOUS VEHICLE -->
 <section class="project-section">
   <div class="project-header reveal">
-    <h2>Bluetooth 5.0 HID Dongle</h2>
-    <p class="project-tagline">A custom BLE dongle with impedance-matched RF traces and a press-fit case.</p>
-    <p class="project-tools">Fall 2025 · Altium Designer · Fusion 360</p>
+    <h2>Autonomous Vehicle</h2>
+    <p class="project-tagline">A 1/8-scale car that drives itself using camera AI, GPS waypoints, and lane detection.</p>
+    <p class="project-tools">Winter 2026 · MAE 148 · ROS2 · SolidWorks · AI HAT+</p>
+    <div class="project-links">
+      <a href="https://github.com/davidshimizu1/148-winter-2026-final-project-team-6" target="_blank" rel="noopener" class="project-link">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        Source
+      </a>
+    </div>
   </div>
 
-  <div class="project-links">
-  <a href="https://github.com/davidshimizu1/bluetooth-dongle" target="_blank" rel="noopener" class="project-link">
-    <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-    Source
-  </a>
-</div>
-
-<div class="project-image reveal">
-    <img src="pictures.videos/dongle.png" alt="Bluetooth 5.0 HID dongle">
-</div>
+  <div class="project-image reveal">
+    <img src="pictures.videos/robocar.png" alt="1/8-scale autonomous vehicle">
+  </div>
 
   <div class="project-grid reveal-group">
     <div class="project-stat reveal">
-      <div class="stat-number">280ft</div>
-      <h4>Range</h4>
-      <p>Verified 280 ft line-of-sight range at –88 dBm RSSI on a 4-layer PCB with impedance-matched RF traces.</p>
+      <div class="stat-number">16% → &lt;3%</div>
+      <h4>CPU Load</h4>
+      <p>Offloaded vision inference to a Hailo AI HAT+ NPU and eliminated per-frame connection overhead, cutting CPU load from 16% to under 3% and raising standalone model benchmark throughput from 309 to 2,112 FPS.</p>
     </div>
     <div class="project-stat reveal">
-      <div class="stat-number">&lt;20ms</div>
-      <h4>Latency</h4>
-      <p>Fast enough for real-time keyboard and mouse input over Bluetooth.</p>
+      <div class="stat-number">145s → 53s</div>
+      <h4>Lap Time</h4>
+      <p>Tuned steering and throttle PID controllers empirically on track, balancing response speed against overshoot and oscillation across successive runs without sacrificing cornering stability.</p>
     </div>
-    <div class="project-stat wide reveal">
-      <h4>Tolerance Stack-Up</h4>
-      <p>Designed a two-piece press-fit enclosure and ran a tolerance stack-up to hold fit across 3D-printed parts, accounting for print process variation on mating features.</p>
+    <div class="project-stat reveal">
+      <h4>Mechanical Packaging</h4>
+      <p>Designed and 3D-printed a chassis mounting plate and sensor housing in SolidWorks to package the Raspberry Pi 5, OAK-D camera, and VESC, optimizing weight distribution and holding critical sensor alignment.</p>
+    </div>
+    <div class="project-stat reveal">
+      <h4>System Integration</h4>
+      <p>Integrated the powertrain and sensor suite on a 4-person team, delivering camera-based path following, RTK GPS waypoint navigation, and vision line following at 20 Hz closed-loop control.</p>
     </div>
   </div>
 </section>
 
 
+<!-- PROJECT 4: BLE DONGLE -->
+<div class="full-section alt">
+  <section class="project-section">
+    <div class="project-header reveal">
+      <h2>Bluetooth 5.0 HID Dongle</h2>
+      <p class="project-tagline">A custom BLE dongle with impedance-matched RF traces and a press-fit case.</p>
+      <p class="project-tools">Fall 2025 · Altium Designer · Fusion 360</p>
+      <div class="project-links">
+        <a href="https://github.com/davidshimizu1/bluetooth-dongle" target="_blank" rel="noopener" class="project-link">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          Source
+        </a>
+      </div>
+    </div>
+
+    <div class="project-image reveal">
+      <img src="pictures.videos/dongle.png" alt="Bluetooth 5.0 HID dongle">
+    </div>
+
+    <div class="project-grid reveal-group">
+      <div class="project-stat reveal">
+        <div class="stat-number">280ft</div>
+        <h4>Range</h4>
+        <p>Verified 280 ft line-of-sight range at –88 dBm RSSI on a 4-layer PCB with impedance-matched RF traces.</p>
+      </div>
+      <div class="project-stat reveal">
+        <div class="stat-number">&lt;20ms</div>
+        <h4>Latency</h4>
+        <p>Fast enough for real-time keyboard and mouse input over Bluetooth.</p>
+      </div>
+      <div class="project-stat wide reveal">
+        <h4>Tolerance Stack-Up</h4>
+        <p>Designed a two-piece press-fit enclosure and ran a tolerance stack-up to hold fit across 3D-printed parts, accounting for print process variation on mating features.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+
 <!-- SKILLS -->
-<div class="full-section alt" id="skills">
+<div class="full-section" id="skills">
   <div class="section-overline reveal">Skills</div>
   <h2 class="section-headline reveal">Tools and technologies</h2>
   <div class="skills-inner">
@@ -698,7 +739,7 @@ footer p { font-size: 0.72rem; color: var(--text-dim); }
 
 
 <!-- CONTACT -->
-<div class="full-section" id="contact">
+<div class="full-section alt" id="contact">
   <div class="section-overline reveal">Contact</div>
   <h2 class="section-headline reveal">Get in touch</h2>
   <p class="section-sub reveal">Looking for full-time roles. Available to start April 2027.</p>
