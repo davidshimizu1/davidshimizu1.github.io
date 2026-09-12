@@ -300,6 +300,35 @@ nav .nav-name { color: var(--text); font-weight: 700; font-size: 0.82rem; }
   margin-bottom: 2.5rem;
 }
 
+/* THREE-UP IMAGE ROW */
+.image-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  margin-bottom: 2.5rem;
+}
+
+.image-row figure {
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+}
+
+.image-row img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.image-row figcaption {
+  text-align: center;
+  padding: 0.8rem 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
 
 .image-item {
   border-radius: 18px;
@@ -498,6 +527,7 @@ footer p { font-size: 0.72rem; color: var(--text-dim); }
   .project-section { padding: 3.5rem 1.5rem 4.5rem; }
   .video-pair { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
   .image-pair { grid-template-columns: 1fr; gap: 1rem; }
+  .image-row { grid-template-columns: 1fr; gap: 1rem; }
 }
 
 
@@ -721,10 +751,21 @@ footer p { font-size: 0.72rem; color: var(--text-dim); }
       </div>
     </div>
 
-    <div class="project-image reveal">
-      <img src="pictures.videos/dongle.png" alt="Bluetooth 5.0 HID dongle">
+    <div class="image-row reveal">
+      <figure>
+        <img src="pictures.videos/topdongle.png" alt="Top view of the Bluetooth 5.0 HID dongle enclosure">
+        <figcaption>Top</figcaption>
+      </figure>
+      <figure>
+        <img src="pictures.videos/botdongle.png" alt="Bottom view of the dongle enclosure">
+        <figcaption>Bottom</figcaption>
+      </figure>
+      <figure>
+        <img src="pictures.videos/pcbdongle.png" alt="Bare PCB, component side">
+        <figcaption>PCB</figcaption>
+      </figure>
     </div>
-
+    
     <div class="project-grid reveal-group">
       <div class="project-stat reveal">
         <div class="stat-number">280ft</div>
