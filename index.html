@@ -605,7 +605,7 @@ footer p { font-size: 0.72rem; color: var(--text-dim); }
 
   <div class="image-pair reveal">
     <div class="image-item">
-      <img src="pictures.videos/heatsink.png" alt="Bonded-fin heatsink on CNC-machined 6061 base">
+      <img src="pictures.videos/heatsink.png">
       <div class="image-label">Heatsink</div>
     </div>
     <div class="image-item">
@@ -614,25 +614,54 @@ footer p { font-size: 0.72rem; color: var(--text-dim); }
     </div>
   </div>
 
+<div class="reveal">
+  <h3>Thermal Results</h3>
+  <p>
+    Automatic fan control reduced steady-state junction temperature
+    from 76.48°C to 63.02°C. Maximum fan speed lowered it further
+    to 59.03°C, with noticeably higher fan noise.
+  </p>
+
+  <figure class="project-image">
+    <img
+      src="pictures.videos/heatsinkcomparison.png"
+      alt="Junction temperature over time for the stock cooler, custom cooler with automatic fan control, and custom cooler at maximum fan speed"
+      loading="lazy"
+      style="display: block; width: 100%; height: auto;"
+    >
+    <figcaption>
+      First 18 minutes of each load test. The stock run lasted
+      18 minutes; both custom runs continued to 30 minutes.
+      The early dip in the custom automatic-fan trace coincided
+      with an inference-workload restart.
+    </figcaption>
+  </figure>
+</div>
+  
   <div class="project-grid reveal-group">
     <div class="project-stat reveal">
-      <div class="stat-number">75°C → 62°C</div>
+      <div class="stat-number">76°C → 59°C</div>
       <h4>Steady-State Temperature</h4>
       <p>Designed and tested a cooling assembly for a Jetson Orin Nano dissipating 21 W under sustained inference, measured against the stock cooler at matched power and ambient temperature.</p>
     </div>
     <div class="project-stat reveal">
       <div class="stat-number">12</div>
       <h4>Configurations Swept</h4>
-      <p>Swept fin count and spacing across 12 configurations in SolidWorks Flow Simulation using the fan's P-Q curve, selecting 18 fins at 1.5 mm spacing to balance added surface area against rising flow impedance.</p>
+      <p>Swept fin count and spacing across 12 configurations in SolidWorks Flow Simulation using the fan's P-Q curve, selecting 18 fins at 3.0 mm center to center pitch (2.0 mm gap) to balance added surface area against rising flow impedance.</p>
     </div>
     <div class="project-stat reveal">
       <h4>Mechanical Packaging</h4>
       <p>Packaged a bonded-fin heatsink on a CNC-machined 6061 base with a ducted fan path and 3D-printed enclosure, preloading the module to 30 psi with spring-loaded fasteners under NVIDIA's 60 psi limit.</p>
     </div>
-    <div class="project-stat reveal">
-      <h4>Design for Manufacturing</h4>
-      <p>Increased fin-slot clearance by 0.2 mm per side after supplier DFM review to resolve internal-corner interference.</p>
-    </div>
+<div class="project-stat reveal">
+  <h4>Design for Manufacturing</h4>
+  <p>
+    Created manufacturing drawings with GD&amp;T to communicate
+    critical dimensions and tolerances. Worked with the manufacturer
+    during DFM review to verify tapped-hole specifications and
+    machining feasibility.
+  </p>
+</div>
   </div>
 </section>
 
